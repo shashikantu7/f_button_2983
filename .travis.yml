@@ -1,0 +1,32 @@
+language: generic
+dist: trusty
+sudo: required
+addons:
+  chrome: stable
+cache:
+  directories:
+    - node_modules
+before_install:
+  - google-chrome-stable --headless --disable-gpu --no-sandbox --remote-debugging-port=9222 http://localhost &
+  - gem install sass
+before_script:
+  - npm install
+  - npm update -g npm
+  - npm install grunt-cli -g
+  - npm run js-lint
+  - 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then npm run test; fi'
+  - git config --global user.email "github@froala.com"
+  - git config --global user.name "Froala Bot"
+  - git clone https://user:"$GH_TOKEN"@github.com/froala/wysiwyg-editor.git dist
+  - npm run dist
+script:
+  - bash ./deploy.sh
+branches:
+  only:
+    - master
+env:
+  global:
+    secure: encrypted-github-token
+
+
+

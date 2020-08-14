@@ -1,0 +1,12 @@
+node_modules/*
+**/.DS_STORE
+dist/*
+dist
+phantomjs
+versions/
+udist/*
+udist
+src/html/SweetDay
+package-lock.json
+.github
+.sass-cache
