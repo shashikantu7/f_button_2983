@@ -1,0 +1,356 @@
+.fr-popup {
+  position: absolute;
+  display: none;
+  color: $ui-text;
+  background: $ui-bg;
+  @include box-shadow($popup-box-shadow);
+  font-family: $font-family;
+  @include box-sizing(border-box);
+  @include user-select(none);
+  margin-top: $popup-margin-top;
+  z-index: 2147483635;
+  text-align: left;
+  @include border-radius($popup-border-radius);
+  text-rendering: optimizelegibility;
+  @include font-smoothing();
+  line-height: 1.2;
+
+  .fr-icon {
+    text-align: center;
+    vertical-align: middle;
+    font-size: $popup-icon-font-size;
+    line-height: 1;
+    cursor: pointer;
+    font-weight: 400;
+    box-sizing: content-box;
+    padding: $popup-icon-padding;
+  }
+
+  .fr-icon-container {
+    padding: $popup-border-padding;
+    max-height: $popup-container-max-height;
+    overflow: auto;
+    @include box-sizing(border-box);
+    
+    @supports not (-ms-high-contrast: none) { 
+      grid-template-columns: repeat(auto-fill, minmax($btn-size, $btn-size));
+      display: grid;
+    }
+
+    @media (min-width: $screen-sm) {
+      min-width: $popup-min-width; 
+    }
+
+    @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+      display: inline-flex;
+      -ms-flex-flow: row wrap;
+    }
+
+    @media screen and (-ms-high-contrast: active) and (max-width: $screen-sm), (-ms-high-contrast: none) and (max-width: $screen-sm) {
+      width: $popup-sm-ie-width;
+    }
+  }
+
+  .fr-input-focus {
+    background: $ui-hover-light-color;
+  }
+
+  &.fr-above {
+    margin-top: -10px;
+    border-top: 0;
+  }
+
+  &.fr-active {
+    display: block;
+  }
+
+
+  &.fr-hidden {
+    @include opacity(0);
+  }
+
+  &.fr-empty {
+    display: none !important;
+  }
+
+  .fr-hs {
+    display: block !important;
+
+    &.fr-hidden {
+      display: none !important;
+    }
+  }
+
+  .fr-input-line {
+    position: relative;
+    padding: $input-line-padding;
+
+    input[type="text"], textarea {
+      width: 100%;
+      margin-bottom: $input-margin-bottom;
+      @include border-radius($input-border-radius);
+      border: solid $input-border-width $input-border-color;
+      color: $ui-text;
+      font-size: $input-label-font-size;
+      background: $ui-bg;
+      position: relative;
+      z-index: 2;
+      padding: $input-padding;
+      @include box-sizing(border-box);
+      @include transition(border $toolbar-transition-timing, padding $toolbar-transition-timing);
+
+      &:hover {
+        border: solid $input-border-width $ui-border-hover-color;
+      }
+
+      &:focus {
+        border: solid $input-focus-border-width $ui-color;
+        padding: $input-focus-padding;
+      }
+    }
+
+    input[type="text"] {
+      height: $input-height;
+    }
+
+    input + label, textarea + label {
+      position: absolute;
+      top: $input-label-top;
+      left: $input-label-left;
+      font-size: $input-label-font-size;
+      color: grey;
+      @include transition(all $toolbar-transition-timing ease);
+      z-index: 3;
+      display: block;
+      background: $ui-bg;
+      padding: 0;
+      cursor: text;
+    }
+
+    input.fr-not-empty + label, textarea.fr-not-empty + label {
+      color: $input-label-color;
+      width: auto;
+      left: $input-label-left-after;
+      padding: 0 $input-label-padding;
+      font-size: $input-label-font-size-after;
+      top: $input-label-top-after;
+    }
+  }
+
+  input, textarea {
+    @include user-select(text);
+    @include border-radius(0);
+    outline: none;
+  }
+
+  textarea {
+    resize: none,
+  }
+
+  .fr-buttons {
+    white-space: nowrap;
+    line-height: 0;
+
+    .fr-btn {
+      margin-left: $btn-margin;
+      margin-right: $btn-margin;
+      display: inline-block;
+      float: none;
+
+      i {
+        float: left;
+      }
+    }
+
+    .fr-separator {
+      display: inline-block;
+      float: none;
+    }
+
+    &.fr-tabs {
+      @include border-radius($btn-tab-border-radius);
+      background-color: $ui-bg-color-more;
+      overflow: hidden;
+
+      &.fr-tabs-scroll {
+        @media (max-width: $screen-sm) {
+          overflow: scroll;
+          overflow-y: hidden;
+          width: $popup-min-width;
+        }
+      }
+    }
+
+    &:not(.fr-tabs) {
+      padding: $popup-padding;
+    }
+  }
+
+  .fr-layer {
+    @include border-radius($popup-border-radius);
+    width: ($popup-layer-width * 0.75);
+    @media (min-width: $screen-sm) {
+      width: $popup-layer-width;
+    }
+
+    @include box-sizing(border-box);
+    margin: $popup-layer-margin;
+    display: none;
+
+    &.fr-active {
+      display: inline-block;
+    }
+  }
+
+  .fr-action-buttons {
+    z-index: 7;
+    height: $btn-size;
+    text-align: right;
+
+    button.fr-command {
+      height: $btn-size;
+      line-height: 1;
+      color: $ui-color;
+      padding: $popup-action-btn-spacing;
+      cursor: pointer;
+      text-decoration: none;
+      border: none;
+      background: none;
+      font-size: $popup-action-button-font-size;
+      outline: none;
+      @include transition(background $transition-timing);
+      @include border-radius($border-radius);
+
+      + button {
+        margin-left: 24px;
+      }
+
+      &:hover, &:focus {
+        background: $btn-hover-bg;
+        color: $ui-color;
+      }
+
+      &:active {
+        background: $btn-active-bg;
+        color: $ui-color;
+      }
+    }
+
+    button::-moz-focus-inner {
+      border: 0;
+    }
+  }
+
+  .fr-checkbox {
+    position: relative;
+    display: inline-block;
+    width: $checkbox-size;
+    height: $checkbox-size;
+    padding: $checkbox-padding;
+    border-radius: 100%;
+    line-height: 1;
+    @include box-sizing(content-box);
+    vertical-align: middle;
+
+    svg {
+      margin-left: $checkbox-margin;
+      margin-top: $checkbox-margin;
+      display: none;
+      width: $checbox-svg-size;
+      height: $checbox-svg-size;
+    }
+
+    span {
+      @include border-radius($border-radius);
+      width: $checkbox-size;
+      height: $checkbox-size;
+      display: inline-block;
+      position: relative;
+      z-index: 1;
+      @include box-sizing(border-box);
+      @include transition(background $transition-timing, border-color $transition-timing);
+    }
+
+    input {
+      position: absolute;
+      z-index: 2;
+      @include opacity(0);
+      border: 0 none;
+      cursor: pointer;
+      height: $checkbox-size;
+      margin: 0;
+      padding: 0;
+      width: $checkbox-size;
+      top: 7px;
+      left: 7px;
+
+      &:not(:checked) {
+
+        & + span {
+          border: solid 2px $input-border-color;
+        }
+
+        &:active + span {
+          background-color: $bg-color;
+        }
+
+        &:focus + span, &:hover + span {
+          border-color: $ui-border-hover-color;
+        }
+      }
+
+      &:checked {
+
+        & + span {
+          background: $ui-color;
+          border: solid 2px $ui-color;
+
+          svg {
+            display: block;
+          }
+        }
+
+        &:active + span {
+          background-color: $checbox-active-bg;
+        }
+
+        &:focus + span, &:hover + span {
+          @include opacity($checkbox-opacity);
+        }
+      }
+    }
+  }
+
+  .fr-checkbox-line {
+    font-size: $checkbox-line-font-size;
+    line-height: $checkbox-line-height;
+    margin-top: $checkbox-line-margin-top;
+
+    label {
+      cursor: pointer;
+      margin: $checkbox-line-label-margin;
+      vertical-align: middle;
+    }
+  }
+
+  &.fr-rtl {
+    direction: rtl;
+    text-align: right;
+
+    .fr-action-buttons {
+      text-align: left;
+    }
+
+    .fr-input-line {
+      input + label, textarea + label {
+        left: auto;
+        right: 0;
+      }
+    }
+
+    .fr-buttons .fr-separator.fr-vs {
+      float: right;
+    }
+  }
+
+}

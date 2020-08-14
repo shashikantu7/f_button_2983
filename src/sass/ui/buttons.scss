@@ -1,0 +1,290 @@
+// Command button.
+
+.fr-toolbar, .fr-popup, .fr-modal {
+  .fr-btn-wrap {
+    float: left;
+    white-space: nowrap;
+    position: relative;
+
+    &.fr-hidden {
+      display: none;
+    }
+  }
+
+  .fr-command.fr-btn {
+    background: transparent;
+    color: $btn-text;
+  	-moz-outline: 0;
+  	outline: none;
+    border: 0;
+    line-height: 1;
+  	cursor: pointer;
+    text-align: left;
+    margin: $btn-margin ($btn-margin / 2);
+    padding: 0;
+    @include transition(all $toolbar-transition-timing);
+    @include border-radius($btn-border-radius);
+    z-index: 2;
+    position: relative;
+    @include box-sizing(border-box);
+    text-decoration: none;
+    @include user-select(none);
+    float: left;
+    height: $btn-height;
+
+    &.fr-dropdown.fr-options {
+      @include border-radius($btn-dropdown-border-radius);
+    }
+
+    &.fr-btn-hover {
+      @include border-radius($btn-hover-border-radius);
+    }
+
+    &::-moz-focus-inner {
+      border: 0;
+      padding: 0
+    }
+
+    &.fr-btn-text {
+      width: auto;
+    }
+
+    i, svg {
+      display: block;
+      text-align: center;
+      float: none;
+      margin: (($btn-height - $btn-svg-size) / 2) (($btn-width - $btn-svg-size) / 2);
+      width: $btn-svg-size;
+    }
+
+    svg.fr-svg {
+      height: $btn-svg-size;
+    }
+
+    svg path {
+      @include transition(all $toolbar-transition-timing);
+      fill: $btn-text;
+    }
+
+    // Used for accessibility instead of aria-label.
+    span.fr-sr-only {
+      @include hide-by-clipping();
+    }
+
+    span {
+      font-size: $ui-font-size;
+      display: block;
+      line-height:  ($ui-font-size + 3px);
+      min-width: ($btn-width - 2 * $btn-margin);
+      float: left;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+      height: ($ui-font-size + 3px);
+      font-weight: bold;
+      padding: 0 $btn-margin;
+    }
+
+    img {
+      margin: (($btn-height - $btn-font-size) / 2) (($btn-width - $btn-font-size) / 2);
+      width: $btn-font-size;
+    }
+
+    &.fr-btn-active-popup {
+      background: $btn-active-bg;
+    }
+
+    &.fr-dropdown {
+      &.fr-selection {
+
+        span {
+          font-weight: normal;
+        }
+      }
+
+      i, span, img, svg {
+        margin-left: ((($btn-width - $btn-svg-size) / 2) - $dropdown-arrow-width);
+        margin-right: ((($btn-width - $btn-svg-size) / 2) + $dropdown-arrow-width);
+      }
+
+      &:after {
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-left: $dropdown-arrow-width solid transparent;
+        border-right: $dropdown-arrow-width solid transparent;
+        border-top: $dropdown-arrow-width solid $btn-text;
+        right: ceil(((($btn-width - $btn-svg-size) / 2 - $dropdown-arrow-width) / 2));
+        top: (($btn-height - $dropdown-arrow-width) / 2);
+        @include transition(all $dropdown-transition-timing);
+        content: "";
+      }
+
+      // Dropdown is visible.
+      &.fr-active {
+        fill: $btn-text;
+        background: $btn-active-bg;
+        @include transition($toolbar-transition-timing ease);
+
+        &:hover {
+          background: $btn-hover-bg;
+          fill: $btn-selected-text;
+
+          &::after {
+            border-top-color: $btn-selected-text;
+          }
+        }
+
+        &:after {
+          border-top: 0;
+          border-bottom: 4px solid $ui-text;
+        }
+      }
+    }
+
+    &.fr-disabled {
+      color: $btn-disabled-color;
+      cursor: default;
+      @include opacity($btn-disabled-opacity);
+
+      &::after {
+        border-top-color: $btn-disabled-color;
+      }
+    }
+
+    &.fr-hidden {
+      display: none;
+    }
+  }
+
+  .fr-tabs {
+    .fr-command.fr-btn {
+      margin: 0;
+      width: $popup-tab-button-width;
+      height: $popup-tab-button-height;
+      @include border-radius(0);
+
+      &:not(:hover):not(:focus) {
+        &.fr-active, &.fr-active-tab {
+          background: $ui-bg;
+        }
+      }
+
+      span {
+        height: ($btn-font-size + 3);
+      }
+
+      img, svg {
+        margin: (($popup-tab-button-height - $popup-btn-svg-size) / 2) (($popup-tab-button-width - $popup-btn-svg-size) / 2);
+        width: $popup-btn-svg-size;
+        height: $popup-btn-svg-size;
+      }
+    }
+  }
+
+  .fr-btn-grp, .fr-more-toolbar, .fr-buttons:not(.fr-tabs) {
+    .fr-command.fr-btn {
+      &.fr-active:not(.fr-dropdown) {
+        svg path {
+          fill: $btn-active-text;
+        }
+      }
+    }
+  }
+
+  &.fr-disabled {
+    .fr-btn, .fr-btn.fr-active {
+      color: $btn-disabled-color;
+      @include opacity($btn-disabled-opacity);
+
+      &.fr-dropdown::after {
+        border-top-color: $btn-disabled-color;
+      }
+    }
+  }
+
+  &.fr-rtl {
+    .fr-btn-grp {
+      &.fr-float-left {
+        float: right;
+      }
+
+      &.fr-float-right {
+        float: left;
+      }
+    }
+    .fr-command.fr-btn, .fr-btn-wrap {
+      float: right;
+
+      &.fr-dropdown.fr-options {
+        @include border-radius($btn-hover-border-radius);
+      }
+  
+      &.fr-btn-hover {
+        @include border-radius($btn-dropdown-border-radius);
+      }
+    }
+  }
+}
+
+.fr-toolbar.fr-inline {
+  > .fr-command.fr-btn:not(.fr-hidden), > .fr-btn-wrap:not(.fr-hidden) {
+    @include display-inline-flex();
+    float: none;
+  }
+}
+
+.fr-desktop {
+  .fr-command {
+    // Hover.
+    &:hover, &:focus, &.fr-btn-hover, &.fr-expanded {
+      outline: 0;
+      color: $btn-hover-text;
+
+      &:not(.fr-table-cell) {
+        background: $btn-hover-bg;
+      }
+
+      &::after {
+        border-top-color: $btn-hover-text;
+      }
+    }
+
+    // Button is selected.
+    &.fr-selected:not(.fr-table-cell), &:active {
+      color: $btn-selected-text;
+      background: $btn-selected-bg;
+    }
+
+    &.fr-active {
+      &:hover, &:focus, &.fr-btn-hover, &.fr-expanded {
+        background: $btn-hover-bg;
+      }
+
+      &:active {
+        background: $btn-active-bg;
+      }
+    }
+
+    &.fr-disabled {
+      &:hover, &:focus, &.fr-selected {
+        background: transparent;
+      }
+    }
+  }
+
+  &.fr-disabled {
+    .fr-command {
+      &:hover, &:focus, &.fr-selected {
+        background: transparent;
+      }
+    }
+  }
+}
+
+.fr-toolbar.fr-mobile, .fr-popup.fr-mobile {
+  .fr-command.fr-blink {
+    background: $btn-active-bg;
+  }
+}
+

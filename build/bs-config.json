@@ -1,0 +1,15 @@
+{
+  "port": 8000,
+  "files": [
+    "./src/**/*.{html,htm,css,js}",
+    "./test/**/*{html,htm,css,js}",
+    "./udist/**/*.{html,htm,css,js}"
+  ],
+  "server": {
+    "baseDir": "./"
+  },
+  "open": "local",
+  "browser": "google chrome",
+  "reloadDelay": 1000,
+  "startPath": "test/index.html"
+}

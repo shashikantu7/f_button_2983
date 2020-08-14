@@ -1,0 +1,34 @@
+@import 'mixins.scss';
+@import 'variables.scss';
+
+$theme: 'dark';
+$gray: #AAA;
+$ui-text: #FFF;
+$ui-bg: #353535;
+$bg-color: $ui-bg;
+$btn-hover-text: $ui-text;
+$ui-hover-color: lighten($ui-bg, 5);
+$ui-hover-light-color: mix($black, #999, 65%);
+$ui-focused-color: $ui-hover-color;
+$ui-disabled-color: mix($black, $ui-text, 50%);
+$ui-active-color: lighten($ui-bg, 10);
+$ui-bg-color-more: lighten($ui-bg, 20);
+$toolbar-newline-color: $ui-bg;
+$separator-color: mix($black, $ui-text, 65%);
+$btn-text: $ui-text;
+$modal-bg: $ui-bg;
+$modal-selected-tag-bg: $ui-active-color;
+$floating-btn-bg: $ui-bg;
+$floating-btn-hover-bg: $ui-hover-color;
+$floating-btn-text: $ui-color;
+$drag-helper-bg: $ui-color;
+$table-resizer: 1px solid $ui-color;
+$btn-active-hover-text: $ui-color;
+$btn-disabled-color: $ui-disabled-color;
+$floating-btn-hover-text: $ui-color;
+$btn-hover-bg: $ui-hover-color;
+$btn-active-bg: $ui-active-color;
+$btn-selected-text: $btn-text;
+$btn-selected-bg: $ui-active-color;
+
+@import 'theme.scss';

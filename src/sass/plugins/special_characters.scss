@@ -1,0 +1,26 @@
+@import '../mixins.scss';
+@import '../variables.scss';
+
+.fr-popup {
+  .fr-buttons.fr-tabs {
+    .fr-special-character-category {
+      padding: $special-char-btn-padding;
+      
+      span {
+        font-weight: normal;
+        font-size: $popup-action-button-font-size;
+      }
+    }
+  }
+
+  .fr-special-character {
+    width: $popup-icon-size;
+    height: $popup-icon-size;
+  }
+
+  .fr-icon-container.fr-sc-container {
+    @media screen and (-ms-high-contrast: active) and (min-width: $screen-sm), (-ms-high-contrast: none) and (min-width: $screen-sm) {
+      width: $popup-sc-container-width;
+    }
+  }
+}

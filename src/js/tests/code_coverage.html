@@ -1,0 +1,130 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Froala Editor 2</title>
+
+  <script src="vendor/bililiteRange.js"></script>
+
+  <!-- jQuery -->
+  <script src="vendor/jquery.js"></script>
+
+  <!-- QUnit -->
+  <link rel="stylesheet" href="http://code.jquery.com/qunit/qunit-1.18.0.css" media="screen">
+  <link rel="stylesheet/less" type="text/css" href="../../less/froala.less">
+  <script src="http://code.jquery.com/qunit/qunit-1.18.0.js"></script>
+	<script src="vendor/sinon-1.10.3.js"></script>
+  <script src="vendor/sinon-ie-1.10.3.js"></script>
+  <script src="vendor/sinon-qunit-1.0.0.js"></script>
+  <script src="vendor/less-1.7.3.min.js"></script>
+
+  <script src="vendor/jquery.simulate.js"></script>
+  <script src="vendor/jquery.simulate.ext.js"></script>
+  <script src="vendor/jquery.simulate.drag-n-drop.js"></script>
+  <script src="vendor/jquery.simulate.key-sequence.js"></script>
+  <script src="vendor/jquery.simulate.key-combo.js"></script>
+
+  <script>
+	  sinon.config.useFakeTimers = false
+  </script>
+
+  <!-- Editor sources -->
+  <script src="../../../udist/js/froala_editor.js" data-cover></script>
+
+  <!-- Editor plugins -->
+  <script src="../../../udist/js/plugins/align.js" data-cover></script>
+  <script src="../../../udist/js/plugins/entities.js" data-cover></script>
+  <script src="../../../udist/js/plugins/code_view.js" data-cover></script>
+  <script src="../../../udist/js/plugins/colors.js" data-cover></script>
+  <script src="../../../udist/js/plugins/emoticons.js" data-cover></script>
+  <script src="../../../udist/js/plugins/font_family.js" data-cover></script>
+  <script src="../../../udist/js/plugins/font_size.js" data-cover></script>
+  <script src="../../../udist/js/plugins/image.js" data-cover></script>
+  <script src="../../../udist/js/plugins/image_manager.js" data-cover></script>
+  <script src="../../../udist/js/plugins/line_breaker.js" data-cover></script>
+  <script src="../../../udist/js/plugins/link.js" data-cover></script>
+  <script src="../../../udist/js/plugins/lists.js" data-cover></script>
+  <script src="../../../udist/js/plugins/paragraph_format.js" data-cover></script>
+  <script src="../../../udist/js/plugins/quote.js" data-cover></script>
+  <script src="../../../udist/js/plugins/table.js" data-cover></script>
+  <script src="../../../udist/js/plugins/video.js" data-cover></script>
+
+	<!-- Language-->
+	<!-- <script src="../langs/ar.js" data-cover></script> -->
+
+  <!-- Unit tests -->
+  <!-- Keys -->
+  <script src="unit/editor.js"></script>
+
+  <!-- PLUGINS -->
+  <script src="unit/plugins/image.js"></script>
+  <script src="unit/plugins/colors.js"></script>
+  <script src="unit/plugins/entities.js"></script>
+
+  <!-- Enter -->
+  <script src="unit/keys/enter_p.js"></script>
+  <script src="unit/keys/enter_br.js"></script>
+  <script src="unit/keys/enter_div.js"></script>
+
+  <!-- Backspace -->
+  <script src="unit/keys/backspace_p.js"></script>
+  <script src="unit/keys/backspace_br.js"></script>
+  <script src="unit/keys/backspace_div.js"></script>
+
+  <!-- Delete -->
+  <script src="unit/keys/delete_p.js"></script>
+  <script src="unit/keys/delete_br.js"></script>
+  <script src="unit/keys/delete_div.js"></script>
+
+  <!-- Shift + Enter -->
+  <script src="unit/keys/shift_enter_p.js"></script>
+  <script src="unit/keys/shift_enter_br.js"></script>
+  <script src="unit/keys/shift_enter_div.js"></script>
+
+  <!-- Space -->
+  <script src="unit/keys/space.js"></script>
+
+  <!-- Links -->
+  <script src="unit/links/links_p.js"></script>
+
+  <!-- Selection -->
+  <script src="unit/selection.js"></script>
+
+  <!-- Lists -->
+  <script src="unit/lists/lists_p.js"></script>
+  <script src="unit/lists/lists_div.js"></script>
+  <script src="unit/lists/lists_br.js"></script>
+
+  <!-- Clean -->
+   <script src="unit/clean.js"></script>
+
+  <!-- Tables -->
+  <script src="unit/table.js"></script>
+  <script src="unit/table/insert_column_row.js"></script>
+  <script src="unit/table/delete_column_row.js"></script>
+  <script src="unit/table/merge_cells.js"></script>
+  <script src="unit/table/split_cell.js"></script>
+
+  <!-- Quote -->
+  <script src="unit/quote/quote_p.js"></script>
+  <script src="unit/quote/quote_div.js"></script>
+  <script src="unit/quote/quote_br.js"></script>
+
+  <!-- MISC -->
+  <script src="unit/misc.js"></script>
+  <script src="unit/misc/lists_table.js"></script>
+  <script src="unit/misc/invisible_space.js"></script>
+  <script src="unit/misc/spaces.js"></script>
+
+  <script src="unit/comments.js"></script>
+  <script src="unit/wrap.js"></script>
+  <script src="unit/format.js"></script>
+
+  <script src="vendor/blanket-1.1.5.min.js"></script>
+</head>
+<body>
+  <div>
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
+  </div>
+</body>
+</html>

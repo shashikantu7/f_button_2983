@@ -1,0 +1,1669 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../../../dist/css/froala_editor.css">
+  <link rel="stylesheet" href="../../../../../dist/css/froala_style.css">
+  <link rel="stylesheet" href="../../../../../dist/css/plugins/table.css">
+
+  <style>
+      body {
+          text-align: center;
+          margin: 0;
+      }
+
+      section {
+        padding: 10px 5%;
+      }
+
+      section:after {
+        display: block;
+        clear: both;
+        content: "";
+      }
+
+      table {
+         border-collapse: collapse;
+      }
+
+      table td {
+        border: 1px solid #dddddd;
+      }
+
+      table td.fr-selected-cell {
+        border-color: blue;
+      }
+  </style>
+</head>
+<body>
+
+  <h1>mergeCells</h1>
+
+  <section>
+    <h2>Case 1</h2>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Test Case:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td class="fr-selected-cell">a</td>
+            <td class="fr-selected-cell">b</td>
+          </tr>
+          <tr>
+            <td>c</td>
+            <td>d</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      mergeCells():
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td class="fr-selected-cell" colspan="2">a<br>b</td>
+          </tr>
+          <tr>
+            <td>c</td>
+            <td>d</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <br>
+
+  <section style="background: #f7f7f7;">
+    <h2>Case 2</h2>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Test Case:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td>a</td>
+            <td>b</td>
+          </tr>
+          <tr>
+            <td class="fr-selected-cell">c</td>
+            <td class="fr-selected-cell">d</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      mergeCells():
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td>a</td>
+            <td>b</td>
+          </tr>
+          <tr>
+            <td class="fr-selected-cell" colspan="2">c<br>d</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <br>
+
+  <section>
+    <h2>Case 3</h2>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Test Case:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td class="fr-selected-cell">a</td>
+            <td>b</td>
+          </tr>
+          <tr>
+            <td class="fr-selected-cell">c</td>
+            <td>d</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      mergeCells():
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td class="fr-selected-cell" rowspan="2">a<br>c</td>
+            <td>b</td>
+          </tr>
+          <tr>
+            <td>d</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <br>
+
+  <section style="background: #f7f7f7;">
+    <h2>Case 4</h2>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Test Case:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td>a</td>
+            <td class="fr-selected-cell">b</td>
+          </tr>
+          <tr>
+            <td>c</td>
+            <td class="fr-selected-cell">d</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      mergeCells():
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td>a</td>
+            <td class="fr-selected-cell" rowspan="2">b<br>d</td>
+          </tr>
+          <tr>
+            <td>c</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <br>
+
+  <section>
+    <h2>Case 5</h2>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Test Case:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td class="fr-selected-cell">a</td>
+            <td class="fr-selected-cell">b</td>
+          </tr>
+          <tr>
+            <td class="fr-selected-cell">c</td>
+            <td class="fr-selected-cell">d</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      mergeCells():
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td class="fr-selected-cell">a<br>b<br>c<br>d</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <br>
+
+  <section style="background: #f7f7f7;">
+    <h2>Case 6</h2>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Test Case:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td rowspan="2">a</td>
+            <td class="fr-selected-cell">b</td>
+          </tr>
+          <tr>
+            <td class="fr-selected-cell">c</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      mergeCells():
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td>a</td>
+            <td class="fr-selected-cell">b<br>c</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <br>
+
+  <section>
+    <h2>Case 7</h2>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Test Case:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td class="fr-selected-cell" rowspan="2">a</td>
+            <td class="fr-selected-cell">b</td>
+          </tr>
+          <tr>
+            <td class="fr-selected-cell">c</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      mergeCells():
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td class="fr-selected-cell">a<br>b<br>c</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <br>
+
+  <section style="background: #f7f7f7;">
+    <h2>Case 8</h2>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Test Case:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td class="fr-selected-cell">a</td>
+            <td rowspan="2">b</td>
+          </tr>
+          <tr>
+            <td class="fr-selected-cell">c</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      mergeCells():
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td class="fr-selected-cell">a<br>c</td>
+            <td>b</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <br>
+
+  <section>
+    <h2>Case 9</h2>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Test Case:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td class="fr-selected-cell">a</td>
+            <td>b</td>
+          </tr>
+          <tr>
+            <td class="fr-selected-cell">c</td>
+            <td rowspan="2">d</td>
+          </tr>
+          <tr>
+            <td>e</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      mergeCells():
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td class="fr-selected-cell" rowspan="2">a<br>c</td>
+            <td>b</td>
+          </tr>
+          <tr>
+            <td rowspan="2">d</td>
+          </tr>
+          <tr>
+            <td>e</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <br>
+
+  <section style="background: #f7f7f7;">
+    <h2>Case 10</h2>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Test Case:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td class="fr-selected-cell">a</td>
+            <td>b</td>
+          </tr>
+          <tr>
+            <td class="fr-selected-cell">c</td>
+            <td rowspan="2">d</td>
+          </tr>
+          <tr>
+            <td class="fr-selected-cell">e</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      mergeCells():
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td class="fr-selected-cell" rowspan="2">a<br>c<br>e</td>
+            <td>b</td>
+          </tr>
+          <tr>
+            <td>d</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <br>
+
+  <section>
+    <h2>Case 11</h2>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Test Case:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td class="fr-selected-cell">a</td>
+            <td class="fr-selected-cell">b</td>
+          </tr>
+          <tr>
+            <td>c</td>
+            <td rowspan="2">d</td>
+          </tr>
+          <tr>
+            <td>e</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      mergeCells():
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td class="fr-selected-cell" colspan="2">a<br>b</td>
+          </tr>
+          <tr>
+            <td>c</td>
+            <td rowspan="2">d</td>
+          </tr>
+          <tr>
+            <td>e</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <br>
+
+  <section style="background: #f7f7f7;">
+    <h2>Case 12</h2>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Test Case:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td>a</td>
+            <td>b</td>
+          </tr>
+          <tr>
+            <td class="fr-selected-cell">c</td>
+            <td rowspan="2">d</td>
+          </tr>
+          <tr>
+            <td class="fr-selected-cell">e</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      mergeCells():
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td>a</td>
+            <td>b</td>
+          </tr>
+          <tr>
+            <td class="fr-selected-cell">c<br>e</td>
+            <td>d</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <br>
+
+  <section>
+    <h2>Case 13</h2>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Test Case:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td class="fr-selected-cell">a</td>
+            <td class="fr-selected-cell">b</td>
+          </tr>
+          <tr>
+            <td class="fr-selected-cell">c</td>
+            <td class="fr-selected-cell" rowspan="2">d</td>
+          </tr>
+          <tr>
+            <td class="fr-selected-cell" class="fr-selected-cell">e</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      mergeCells():
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td class="fr-selected-cell">a<br>b<br>c<br>d<br>e</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <br>
+
+  <section style="background: #f7f7f7;">
+    <h2>Case 14</h2>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Test Case:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td rowspan="2">a</td>
+            <td class="fr-selected-cell">b</td>
+          </tr>
+          <tr>
+            <td class="fr-selected-cell">c</td>
+          </tr>
+          <tr>
+            <td>d</td>
+            <td>e</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      mergeCells():
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td>a</td>
+            <td class="fr-selected-cell">b<br>c</td>
+          </tr>
+          <tr>
+            <td>d</td>
+            <td>e</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <br>
+
+  <section>
+    <h2>Case 15</h2>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Test Case:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td rowspan="2">a</td>
+            <td>b</td>
+          </tr>
+          <tr>
+            <td class="fr-selected-cell">c</td>
+          </tr>
+          <tr>
+            <td>d</td>
+            <td class="fr-selected-cell">e</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      mergeCells():
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td rowspan="2">a</td>
+            <td>b</td>
+          </tr>
+          <tr>
+            <td class="fr-selected-cell" rowspan="2">c<br>e</td>
+          </tr>
+          <tr>
+            <td>d</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <br>
+
+  <section style="background: #f7f7f7;">
+    <h2>Case 16</h2>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Test Case:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td rowspan="2">a</td>
+            <td>b</td>
+            <td class="fr-selected-cell">c</td>
+          </tr>
+          <tr>
+            <td rowspan="2">d</td>
+            <td class="fr-selected-cell">e</td>
+          </tr>
+          <tr>
+            <td>f</td>
+            <td>g</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      mergeCells():
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td rowspan="2">a</td>
+            <td>b</td>
+            <td class="fr-selected-cell" rowspan="2">c<br>e</td>
+          </tr>
+          <tr>
+            <td rowspan="2">d</td>
+          </tr>
+          <tr>
+            <td>f</td>
+            <td>g</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <br>
+
+  <section>
+    <h2>Case 17</h2>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Test Case:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td rowspan="2">a</td>
+            <td>b</td>
+            <td>c</td>
+          </tr>
+          <tr>
+            <td rowspan="2">d</td>
+            <td class="fr-selected-cell">e</td>
+          </tr>
+          <tr>
+            <td>f</td>
+            <td class="fr-selected-cell">g</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      mergeCells():
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td rowspan="2">a</td>
+            <td>b</td>
+            <td>c</td>
+          </tr>
+          <tr>
+            <td rowspan="2">d</td>
+            <td class="fr-selected-cell" rowspan="2">e<br>g</td>
+          </tr>
+          <tr>
+            <td>f</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <br>
+
+  <section style="background: #f7f7f7;">
+    <h2>Case 18</h2>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Test Case:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td rowspan="2">a</td>
+            <td>b</td>
+            <td class="fr-selected-cell">c</td>
+          </tr>
+          <tr>
+            <td rowspan="2">d</td>
+            <td class="fr-selected-cell">e</td>
+          </tr>
+          <tr>
+            <td>f</td>
+            <td class="fr-selected-cell">g</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      mergeCells():
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td rowspan="2">a</td>
+            <td>b</td>
+            <td class="fr-selected-cell" rowspan="3">c<br>e<br>g</td>
+          </tr>
+          <tr>
+            <td rowspan="2">d</td>
+          </tr>
+          <tr>
+            <td>f</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <br>
+
+  <section>
+    <h2>Case 19</h2>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Test Case:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td class="fr-selected-cell" rowspan="2">a</td>
+            <td>b</td>
+            <td>c</td>
+          </tr>
+          <tr>
+            <td rowspan="2">d</td>
+            <td>e</td>
+          </tr>
+          <tr>
+            <td class="fr-selected-cell">f</td>
+            <td>g</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      mergeCells():
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td class="fr-selected-cell" rowspan="3">a<br>f</td>
+            <td>b</td>
+            <td>c</td>
+          </tr>
+          <tr>
+            <td rowspan="2">d</td>
+            <td>e</td>
+          </tr>
+          <tr>
+            <td>g</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <br>
+
+  <section style="background: #f7f7f7;">
+    <h2>Case 20</h2>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Test Case:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td rowspan="2">a</td>
+            <td class="fr-selected-cell">b</td>
+            <td>c</td>
+          </tr>
+          <tr>
+            <td class="fr-selected-cell" rowspan="2">d</td>
+            <td>e</td>
+          </tr>
+          <tr>
+            <td>f</td>
+            <td>g</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      mergeCells():
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td rowspan="2">a</td>
+            <td class="fr-selected-cell" rowspan="3">b<br>d</td>
+            <td>c</td>
+          </tr>
+          <tr>
+            <td>e</td>
+          </tr>
+          <tr>
+            <td>f</td>
+            <td>g</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <br>
+
+  <section>
+    <h2>Case 21</h2>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Test Case:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td class="fr-selected-cell" rowspan="2">a</td>
+            <td class="fr-selected-cell">b</td>
+            <td>c</td>
+          </tr>
+          <tr>
+            <td class="fr-selected-cell" rowspan="2">d</td>
+            <td>e</td>
+          </tr>
+          <tr>
+            <td class="fr-selected-cell">f</td>
+            <td>g</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      mergeCells():
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td class="fr-selected-cell" rowspan="3">a<br>b<br>d<br>f</td>
+            <td>c</td>
+          </tr>
+          <tr>
+            <td>e</td>
+          </tr>
+          <tr>
+            <td>g</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <br>
+
+  <section style="background: #f7f7f7;">
+    <h2>Case 22</h2>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Test Case:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td rowspan="2">a</td>
+            <td class="fr-selected-cell">b</td>
+            <td class="fr-selected-cell">c</td>
+          </tr>
+          <tr>
+            <td class="fr-selected-cell" rowspan="2">d</td>
+            <td class="fr-selected-cell">e</td>
+          </tr>
+          <tr>
+            <td>f</td>
+            <td class="fr-selected-cell">g</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      mergeCells():
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td>a</td>
+            <td class="fr-selected-cell" rowspan="2">b<br>c<br>d<br>e<br>g</td>
+          </tr>
+          <tr>
+            <td>f</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <br>
+
+  <section>
+    <h2>Case 23</h2>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Test Case:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td class="fr-selected-cell">a</td>
+            <td rowspan="2">b</td>
+            <td rowspan="2">c</td>
+            <td>d</td>
+          </tr>
+          <tr>
+            <td class="fr-selected-cell">e</td>
+            <td>f</td>
+          </tr>
+          <tr>
+            <td>g</td>
+            <td>h</td>
+            <td>i</td>
+            <td>j</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      mergeCells():
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td class="fr-selected-cell" rowspan="2">a<br>e</td>
+            <td rowspan="2">b</td>
+            <td rowspan="2">c</td>
+            <td>d</td>
+          </tr>
+          <tr>
+            <td>f</td>
+          </tr>
+          <tr>
+            <td>g</td>
+            <td>h</td>
+            <td>i</td>
+            <td>j</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <br>
+
+  <section style="background: #f7f7f7;">
+    <h2>Case 24</h2>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Test Case:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td class="fr-selected-cell">a</td>
+            <td class="fr-selected-cell" rowspan="2">b</td>
+            <td rowspan="2">c</td>
+            <td>d</td>
+          </tr>
+          <tr>
+            <td class="fr-selected-cell">e</td>
+            <td>f</td>
+          </tr>
+          <tr>
+            <td>g</td>
+            <td>h</td>
+            <td>i</td>
+            <td>j</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      mergeCells():
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td class="fr-selected-cell" colspan="2" rowspan="2">a<br>b<br>e</td>
+            <td rowspan="2">c</td>
+            <td>d</td>
+          </tr>
+          <tr>
+            <td>f</td>
+          </tr>
+          <tr>
+            <td>g</td>
+            <td>h</td>
+            <td>i</td>
+            <td>j</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <br>
+
+  <section>
+    <h2>Case 25</h2>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Test Case:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td>a</td>
+            <td rowspan="2">b</td>
+            <td class="fr-selected-cell" rowspan="2">c</td>
+            <td class="fr-selected-cell">d</td>
+          </tr>
+          <tr>
+            <td>e</td>
+            <td class="fr-selected-cell">f</td>
+          </tr>
+          <tr>
+            <td>g</td>
+            <td>h</td>
+            <td class="fr-selected-cell">i</td>
+            <td class="fr-selected-cell">j</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      mergeCells():
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td>a</td>
+            <td rowspan="2">b</td>
+            <td class="fr-selected-cell" rowspan="3">c<br>d<br>f<br>i<br>j</td>
+          </tr>
+          <tr>
+            <td>e</td>
+          </tr>
+          <tr>
+            <td>g</td>
+            <td>h</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <br>
+
+  <section style="background: #f7f7f7;">
+    <h2>Case 26</h2>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Test Case:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td colspan="2">a</td>
+          </tr>
+          <tr>
+            <td class="fr-selected-cell">c</td>
+            <td class="fr-selected-cell">d</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      mergeCells():
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td>a</td>
+          </tr>
+          <tr>
+            <td class="fr-selected-cell">c<br>d</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <br>
+
+  <section>
+    <h2>Case 27</h2>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Test Case:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td class="fr-selected-cell" colspan="2">a</td>
+            <td>b</td>
+          </tr>
+          <tr>
+            <td class="fr-selected-cell">c</td>
+            <td class="fr-selected-cell">d</td>
+            <td>e</td>
+          </tr>
+          <tr>
+            <td>f</td>
+            <td colspan="2">g</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      mergeCells():
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td class="fr-selected-cell" colspan="2" rowspan="2">a<br>c<br>d</td>
+            <td>b</td>
+          </tr>
+          <tr>
+            <td>e</td>
+          </tr>
+          <tr>
+            <td>f</td>
+            <td colspan="2">g</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <br>
+
+  <section style="background: #f7f7f7;">
+    <h2>Case 28</h2>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Test Case:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td class="fr-selected-cell" colspan="2">a</td>
+            <td class="fr-selected-cell">b</td>
+          </tr>
+          <tr>
+            <td class="fr-selected-cell">c</td>
+            <td class="fr-selected-cell">d</td>
+            <td class="fr-selected-cell">e</td>
+          </tr>
+          <tr>
+            <td>f</td>
+            <td colspan="2">g</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      mergeCells():
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td class="fr-selected-cell" colspan="2">a<br>b<br>c<br>d<br>e</td>
+          </tr>
+          <tr>
+            <td>f</td>
+            <td>g</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <br>
+
+  <section>
+    <h2>Case 29</h2>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Test Case:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td colspan="2">a</td>
+            <td>b</td>
+          </tr>
+          <tr>
+            <td class="fr-selected-cell">c</td>
+            <td>d</td>
+            <td>e</td>
+          </tr>
+          <tr>
+            <td class="fr-selected-cell">f</td>
+            <td colspan="2">g</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      mergeCells():
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td colspan="2">a</td>
+            <td>b</td>
+          </tr>
+          <tr>
+            <td class="fr-selected-cell" rowspan="2">c<br>f</td>
+            <td>d</td>
+            <td>e</td>
+          </tr>
+          <tr>
+            <td colspan="2">g</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <br>
+
+  <section style="background: #f7f7f7;">
+    <h2>Case 30</h2>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Test Case:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td colspan="2">a</td>
+            <td>b</td>
+          </tr>
+          <tr>
+            <td class="fr-selected-cell">c</td>
+            <td class="fr-selected-cell">d</td>
+            <td class="fr-selected-cell">e</td>
+          </tr>
+          <tr>
+            <td class="fr-selected-cell">f</td>
+            <td class="fr-selected-cell" colspan="2">g</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      mergeCells():
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td>a</td>
+            <td>b</td>
+          </tr>
+          <tr>
+            <td class="fr-selected-cell" colspan="2">c<br>d<br>e<br>f<br>g</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <br>
+
+  <section>
+    <h2>Case 31</h2>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Test Case:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td colspan="2">a</td>
+            <td>b</td>
+          </tr>
+          <tr>
+            <td>c</td>
+            <td class="fr-selected-cell">d</td>
+            <td class="fr-selected-cell">e</td>
+          </tr>
+          <tr>
+            <td>f</td>
+            <td class="fr-selected-cell" colspan="2">g</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      mergeCells():
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td colspan="2">a</td>
+            <td>b</td>
+          </tr>
+          <tr>
+            <td>c</td>
+            <td class="fr-selected-cell" colspan="2" rowspan="2">d<br>e<br>g</td>
+          </tr>
+          <tr>
+            <td>f</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <br>
+
+  <section style="background: #f7f7f7;">
+    <h2>Case 32</h2>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Test Case:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td class="fr-selected-cell">a</td>
+            <td class="fr-selected-cell">b</td>
+            <td rowspan="3">c</td>
+            <td>d</td>
+          </tr>
+          <tr>
+            <td class="fr-selected-cell" colspan="2" rowspan="2">e</td>
+            <td>f</td>
+          </tr>
+          <tr>
+            <td>g</td>
+          </tr>
+          <tr>
+            <td>h</td>
+            <td colspan="2">i</td>
+            <td>j</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      mergeCells():
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td class="fr-selected-cell" colspan="2" rowspan="3">a<br>b<br>e</td>
+            <td rowspan="3">c</td>
+            <td>d</td>
+          </tr>
+          <tr>
+            <td>f</td>
+          </tr>
+          <tr>
+            <td>g</td>
+          </tr>
+          <tr>
+            <td>h</td>
+            <td colspan="2">i</td>
+            <td>j</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <br>
+
+  <section>
+    <h2>Case 33</h2>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Test Case:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td class="fr-selected-cell">a</td>
+            <td class="fr-selected-cell">b</td>
+            <td class="fr-selected-cell" rowspan="3">c</td>
+            <td>d</td>
+          </tr>
+          <tr>
+            <td class="fr-selected-cell" colspan="2" rowspan="2">e</td>
+            <td>f</td>
+          </tr>
+          <tr>
+            <td>g</td>
+          </tr>
+          <tr>
+            <td>h</td>
+            <td colspan="2">i</td>
+            <td>j</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      mergeCells():
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td class="fr-selected-cell" colspan="2" rowspan="3">a<br>b<br>c<br>e</td>
+            <td>d</td>
+          </tr>
+          <tr>
+            <td>f</td>
+          </tr>
+          <tr>
+            <td>g</td>
+          </tr>
+          <tr>
+            <td>h</td>
+            <td>i</td>
+            <td>j</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <br>
+
+  <section style="background: #f7f7f7;">
+    <h2>Case 34</h2>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Test Case:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td>a</td>
+            <td>b</td>
+            <td rowspan="3">c</td>
+            <td>d</td>
+          </tr>
+          <tr>
+            <td colspan="2" rowspan="2">e</td>
+            <td>f</td>
+          </tr>
+          <tr>
+            <td>g</td>
+          </tr>
+          <tr>
+            <td class="fr-selected-cell">h</td>
+            <td class="fr-selected-cell" colspan="2">i</td>
+            <td>j</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      mergeCells():
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td>a</td>
+            <td>b</td>
+            <td rowspan="3">c</td>
+            <td>d</td>
+          </tr>
+          <tr>
+            <td colspan="2" rowspan="2">e</td>
+            <td>f</td>
+          </tr>
+          <tr>
+            <td>g</td>
+          </tr>
+          <tr>
+            <td class="fr-selected-cell" colspan="3">h<br>i</td>
+            <td>j</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <br>
+
+  <section>
+    <h2>Case 35</h2>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Test Case:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td>a</td>
+            <td>b</td>
+            <td rowspan="3">c</td>
+            <td class="fr-selected-cell">d</td>
+          </tr>
+          <tr>
+            <td colspan="2" rowspan="2">e</td>
+            <td class="fr-selected-cell">f</td>
+          </tr>
+          <tr>
+            <td class="fr-selected-cell">g</td>
+          </tr>
+          <tr>
+            <td>h</td>
+            <td colspan="2">i</td>
+            <td>j</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      mergeCells():
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td>a</td>
+            <td>b</td>
+            <td rowspan="2">c</td>
+            <td class="fr-selected-cell" rowspan="2">d<br>f<br>g</td>
+          </tr>
+          <tr>
+            <td colspan="2">e</td>
+          </tr>
+          <tr>
+            <td>h</td>
+            <td colspan="2">i</td>
+            <td>j</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <br>
+
+  <section style="background: #f7f7f7;">
+    <h2>Case 36</h2>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Test Case:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td>a</td>
+            <td>b</td>
+            <td rowspan="3">c</td>
+            <td class="fr-selected-cell">d</td>
+          </tr>
+          <tr>
+            <td colspan="2" rowspan="2">e</td>
+            <td class="fr-selected-cell">f</td>
+          </tr>
+          <tr>
+            <td class="fr-selected-cell">g</td>
+          </tr>
+          <tr>
+            <td>h</td>
+            <td colspan="2">i</td>
+            <td class="fr-selected-cell">j</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      mergeCells():
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td>a</td>
+            <td>b</td>
+            <td rowspan="2">c</td>
+            <td class="fr-selected-cell" rowspan="3">d<br>f<br>g<br>j</td>
+          </tr>
+          <tr>
+            <td colspan="2">e</td>
+          </tr>
+          <tr>
+            <td>h</td>
+            <td colspan="2">i</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <br>
+
+  <section>
+    <h2>Case 37</h2>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Test Case:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td>a</td>
+            <td>b</td>
+            <td class="fr-selected-cell" rowspan="3">c</td>
+            <td class="fr-selected-cell">d</td>
+          </tr>
+          <tr>
+            <td colspan="2" rowspan="2">e</td>
+            <td class="fr-selected-cell">f</td>
+          </tr>
+          <tr>
+            <td class="fr-selected-cell">g</td>
+          </tr>
+          <tr>
+            <td>h</td>
+            <td colspan="2">i</td>
+            <td>j</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      mergeCells():
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td>a</td>
+            <td>b</td>
+            <td class="fr-selected-cell" colspan="2" rowspan="2">c<br>d<br>f<br>g</td>
+          </tr>
+          <tr>
+            <td colspan="2">e</td>
+          </tr>
+          <tr>
+            <td>h</td>
+            <td colspan="2">i</td>
+            <td>j</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+@import 'variables.scss';
+@import 'mixins.scss';
+
+@import 'core/element.scss';
+@import 'core/iframe.scss';
+@import 'core/wrapper.scss';
+
+@import 'tooltip.scss';
+
+@import 'ui/buttons.scss';
+@import 'ui/dropdown.scss';
+@import 'ui/modal.scss';
+@import 'ui/popup.scss';
+@import 'ui/text_edit.scss';
+@import 'ui/toolbar.scss';
+
+@import 'helpers.scss';
+
+.fr-box {
+  position: relative;
+}
+
+/**
+ * Postion sticky hacks.
+ */
+.fr-sticky {
+  position: -webkit-sticky;
+	position: -moz-sticky;
+	position: -ms-sticky;
+	position: -o-sticky;
+	position: sticky;
+}
+
+.fr-sticky-off {
+	position: relative;
+}
+
+.fr-sticky-on {
+  position: fixed;
+  z-index: 10;
+
+  &.fr-sticky-ios {
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: auto !important;
+  }
+}
+
+.fr-sticky-dummy {
+	display: none;
+}
+
+.fr-sticky-on + .fr-sticky-dummy, .fr-sticky-box > .fr-sticky-dummy {
+	display: block;
+}
+
+// Used for accessibility instead of aria-label.
+span.fr-sr-only {
+  @include hide-by-clipping();
+}

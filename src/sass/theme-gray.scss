@@ -1,0 +1,29 @@
+@import 'mixins.scss';
+@import 'variables.scss';
+
+$theme: "gray";
+$ui-color: #0097A7;
+$ui-text: #37474F;
+$ui-bg: #F5F5F5;
+$ui-hover-color: darken($ui-bg, 5);
+$ui-hover-light-color: mix($white, #999, 80%);
+$ui-focused-color: $ui-hover-color;
+$ui-disabled-color: mix($white, $ui-text, 64%);
+$ui-active-color: darken($ui-bg, 10);
+$ui-bg-color-more: darken($ui-bg, 15);
+$btn-text: $ui-text;
+$btn-active-text: $ui-color;
+$btn-hover-text: $ui-text;
+$floating-btn-text: $ui-color;
+$drag-helper-bg: $ui-color;
+$table-resizer: 1px solid $ui-color;
+$btn-active-hover-text: $ui-color;
+$btn-disabled-color: $ui-disabled-color;
+$floating-btn-hover-text: $ui-color;
+$floating-btn-hover-bg: $ui-hover-color;
+$btn-hover-bg: $ui-hover-color;
+$btn-active-bg: $ui-active-color;
+$btn-selected-text: $btn-text;
+$btn-selected-bg: $btn-active-bg;
+
+@import 'theme.scss';

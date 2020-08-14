@@ -1,0 +1,307 @@
+@import 'contrast.scss';
+// Theme Name.
+$theme: 'theme';
+
+// Generic.
+$white: #FFF;
+$light-black: #333333;
+$black: #000;
+$gray: #CCCCCC;
+$dark-grey: #999999;
+$font-family: Arial, Helvetica, sans-serif;
+$border-radius: 2px;
+$transition-timing: 0.2s ease 0s;
+$bg-color: #f5f5f5;
+
+// UI colors
+$ui-color: #0098f7;
+$ui-text: #222222;
+$ui-hover-light-color: mix($white, #999, 90%);
+$ui-hover-color: mix($white, #999, 80%);
+$ui-focused-color: mix($white, #999, 60%);
+$ui-disabled-color: mix($white, #000, 74%);
+$ui-active-color: #d6d6d6;
+$ui-bg: $white;
+$ui-font-size: 14px;
+$ui-border-color: $ui-text;
+$ui-border-top: 5px solid $ui-border-color;
+$ui-border-hover-color:#515151;
+$ui-bg-color: #efefef;
+$ui-svg-size: 24px;
+$ui-box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+$ui-bg-color-more: $bg-color;
+
+// Separator
+$separator-size: 1px;
+$separator-color: mix($white, #999, 80%);
+$separator-margin: 8px 4px;
+
+// Toolbar
+$toolbar-transition-timing: 0.5s;
+$toolbar-newline-margin: 9px;
+$toolbar-newline-height: 1px;
+$toolbar-newline-color: $ui-bg-color;
+$btn-more-open-margin-top: 10px;
+$btn-more-open-margin-bottom: -1px;
+$btn-size: 36px;
+
+// Logo
+$logo-svg-height: 20px;
+$logo-svg-width: 47px;
+$logo-svg-margin: 7px 0;
+$logo-transition-timing: 0.3s;
+$logo-span-padding: 11px 5px 10px 15px;
+$logo-span-font-size: 12px;
+$logo-color: #b1b2b7;
+
+// Screen sizes.
+$screen-xs: 480px;
+$screen-sm: 768px;
+$screen-md: 992px;
+$screen-lg: 1200px;
+$screen-xs-max: ($screen-sm - 1);
+$screen-sm-max: ($screen-md - 1);
+$screen-md-max: ($screen-lg - 1);
+$screen-lg-max: 'auto';
+
+// Tooltip
+$tooltip-bg: $ui-text;
+$tooltip-text: $white;
+$tooltip-font-size: 11px;
+$tooltip-line-height: 22px;
+
+// Editor properties.
+$editor-padding: 20px;
+$editor-bg: $white;
+$editor-font-family: sans-serif;
+$editor-font-color: #414141;
+$editor-font-size: 14px;
+$editor-line-height: 1.6;
+$editor-shadow-level: 1;
+$editor-border: 1px solid $gray;
+$editor-border-radius: 10px;
+$editor-align: left;
+
+// Text selection colors.
+$selection-bg: #b5d6fd;
+$selection-text: #000;
+
+// Placeholder properties.
+$placeholder-size: $editor-font-size;
+$placeholder-font-family: $editor-font-family;
+$placeholder-color: #AAA;
+
+// Button colors.
+$btn-text: $light-black;
+$btn-hover-text: $light-black;
+$btn-hover-bg: #ebebeb;
+
+$btn-active-text: $ui-color;
+$btn-active-bg: $ui-active-color;
+$btn-active-hover-text: $btn-active-text;
+
+$btn-selected-text: $btn-text;
+$btn-selected-bg: $ui-focused-color;
+
+$btn-disabled-color: $ui-disabled-color;
+$btn-disabled-opacity: 0.3;
+
+// Button size.
+$btn-width: 38px;
+$btn-height: 40px;
+$btn-margin: 4px;
+$btn-font-size: 24px;
+$btn-more-toolbar-height: 34px;
+$btn-border-radius: 4px;
+$btn-dropdown-border-radius: 0 $btn-border-radius $btn-border-radius 0;
+$btn-hover-border-radius: $btn-border-radius 0 0 $btn-border-radius;
+$btn-svg-size: $ui-svg-size;
+$btn-tab-border-radius: 6px 6px 0 0;
+
+// Second toolbar.
+$more-toolbar-margin: 0 17px 0 12px;
+$more-toolbar-margin-sm: 0 7px 0 6px;
+$more-toolbar-btn-height: $btn-height + ($btn-margin * 2);
+
+// Image.
+$image-margin: 5px;
+$image-padding: 0 1px;
+
+// Image and Video
+$handler-size: 12px;
+$handler-size-lg: 10px;
+
+// Code View
+$code-view-bg: $white;
+$code-view-text: $black;
+
+// Table properties.
+$table-border: 1px solid #DDD;
+$table-resizer: 1px solid $ui-color;
+
+// Insert table grid.
+$insert-table-grid: $table-border;
+
+// Quick insert.
+$floating-btn-bg: $white;
+$floating-btn-text: $light-black;
+$floating-btn-hover-bg: $btn-hover-bg;
+$floating-btn-hover-text: $floating-btn-text;
+$floating-btn-size: 40px;
+$floating-btn-font-size: 14px;
+$floating-btn-border: none;
+$floating-svg-btn-size: $ui-svg-size;
+$floating-svg-btn-margin: 8px;
+$floating-btn-padding: 6px 10px 10px 10px;
+$floating-btn-box-shadow: $ui-box-shadow;
+
+$quick-insert-padding-right: 10px;
+
+// List menu.
+$dropdown-arrow-width: 4px;
+$dropdown-max-height: 275px;
+$dropdown-options-width: 16px;
+$dropdown-options-margin-left: -5px;
+$dropdown-options-border-left: solid 1px #FAFAFA;
+$dropdown-transition-timing: 0.3s;
+$dropdown-border-radius: 4px;
+$dropdown-list-padding: 8px 0;
+$dropdown-list-min-width: 72px;
+$dropdown-list-item-font-size: 15px;
+$dropdown-menu-box-shadow: $ui-box-shadow;
+
+// Image manager.
+$modal-bg: $white;
+$modal-overlay-color: $black;
+$modal-head-height: 56px;
+$modal-head-padding: 0 10px;
+$modal-btn-padding: ($floating-btn-size - $floating-svg-btn-size) / 2;
+$modal-btn-margin-top: 10px;
+$modal-tags-border-radius: 32px;
+$modal-tags-padding: 0 20px;
+$modal-link-tags-padding: 6px 12px;
+$modal-link-tags-margin: 8px 0 8px 8px;
+$modal-selected-tag-bg: #EcF5Ff;
+$modal-wrapper-border-radius: 10px;
+$modal-wrapper-margin-lg: 20px auto;
+$modal-wrapper-margin-md: 50px auto;
+$modal-wrapper-margin-sm: 30px auto;
+$modal-wrapper-box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
+$modal-head-min-height: 42px;
+$modal-close-margin: 10px;
+$modal-heading-font-size: 20px;
+$modal-heading-padding: 19px 10px;
+$modal-body-min-width: 150px;
+$modal-body-btn-height: $btn-size;
+$modal-body-btn-padding: 10px;
+$modal-body-padding-bottom: 20px;
+$modal-head-line-height: 18px;
+$modal-wrapper-min-width: 300px;
+$modal-overlay-opacity: 0.5;
+
+// Destroy buttons (delete in image manager).
+$modal-destroy-btn-bg: #B8312F;
+$modal-destroy-btn-text: $white;
+$modal-destroy-btn-hover-bg: mix(contrast-color($modal-destroy-btn-bg, $black, $white), $modal-destroy-btn-bg, 10%);
+$modal-destroy-btn-hover-text: $white;
+
+// Popups
+$popup-layer-width: 260px;
+$popup-border-radius: 6px;
+$popup-min-width: 276px;
+$popup-container-max-height: 200px;
+$popup-icon-size: $ui-svg-size;
+$popup-tab-button-width: 46px;
+$popup-tab-button-height: $btn-height;
+$popup-box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
+$popup-action-btn-spacing: 10px;
+$popup-margin-top: $popup-action-btn-spacing;
+$popup-layer-margin: 20px;
+$popup-action-button-font-size: 16px;
+$popup-only-btn-padding: 6px 10px;
+$popup-btn-svg-size: $ui-svg-size;
+$popup-border-margin: 20px;
+$popup-border-padding: 20px;
+$popup-icon-font-size: 20px;
+$popup-padding: 5px;
+$popup-icon-padding: 6px;
+$popup-emoticon-container-width: 368px;
+$popup-sc-container-width: $popup-emoticon-container-width;
+$popup-fa-container-width: 506px;
+$popup-sm-ie-width: 236px;
+$popup-fa-icon-size: 18px;
+$popup-fa-icon-padding: 8px;
+$popup-fa-icon-margin: 6px;
+$popup-fa-icon-font-size: 16px;
+$popup-fa-grid-icon-size: 45px;
+
+// Inputs.
+$input-border-color: $dark-grey;
+$input-label-color: mix($white, #000, 50%);
+$input-line-padding: 15px 0;
+$input-border-radius: 2px;
+$input-border-width: 1px;
+$input-focus-border-width: 2px;
+$input-padding-left-right: 12px;
+$input-padding-top-bottom: 4px;
+$input-padding: $input-padding-top-bottom $input-padding-left-right;
+$input-focus-padding: ($input-padding-top-bottom - $input-focus-border-width + $input-border-width) ($input-padding-left-right - $input-focus-border-width + $input-border-width);
+$input-height: 46px;
+$input-label-font-size: 14px;
+$input-label-font-size-after: 11px;
+$input-label-top: 29px;
+$input-label-top-after: 9px;
+$input-label-left: 12px;
+$input-label-left-after: 4px;
+$input-label-padding: 4px;
+$input-margin-bottom: 1px;
+
+// Checkbox
+$checkbox-size: 18px;
+$checkbox-padding: 10px;
+$checkbox-margin: 2px;
+$checbox-svg-size: 10px;
+$checkbox-line-margin-top: 10px;
+$checkbox-line-font-size: 14px;
+$checkbox-line-label-margin: 0 5px;
+$checkbox-line-height: 1.4px;
+$checbox-active-bg: #EcF5Ff;
+$checkbox-opacity: 0.8;
+
+// Quote.
+$blockquote-level1-color: #5E35B1;
+$blockquote-level2-color: #00BCD4;
+$blockquote-level3-color: #43A047;
+
+// Char counter.
+$char-counter-text-color: $dark-grey;
+$char-counter-font-size: 14px;
+$char-counter-font-family: sans-serif;
+$char-counter-padding: 10px;
+
+$drag-helper-border: solid 1px $ui-color;
+$drag-helper-bg: $ui-color;
+
+// Document ready.
+$document-ready-padding: 30px;
+$document-ready-bg-color: $ui-bg-color;
+
+// Colors
+$color-input-line-padding: 15px 0 0;
+$color-action-button-padding: 17px 0 0;
+$color-span-size: 32px;
+$color-remove-svg-margin: 4px;
+$color-line-height: 32px;
+$color-font-size: 13px;
+
+// Emoticons
+$emoticon-tab-padding: 6px;
+$emoticon-tab-btn-padding: 0 0 0 14px;
+
+// Image Manager
+$image-manager-list-margin: 0 20px;
+$image-manager-not-available-padding: 12px 0;
+
+//Special Character
+$special-char-btn-padding: 10px 15px;
+

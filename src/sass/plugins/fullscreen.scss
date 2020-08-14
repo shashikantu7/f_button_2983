@@ -1,0 +1,54 @@
+@import '../mixins.scss';
+
+body.fr-fullscreen {
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+}
+
+.fr-box.fr-fullscreen {
+  margin: 0 !important;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 2147483630 !important;
+  width: auto !important;
+
+  &.fr-basic {
+    &.fr-top .fr-wrapper {
+      @include border-radius(0);
+    }
+
+    &.fr-bottom .fr-wrapper {
+      @include border-radius(0);
+    }
+  }
+  
+  .fr-toolbar {
+    @include border-radius(0);
+
+    &.fr-top {
+      top: 0 !important;
+    }
+
+    &.fr-bottom {
+      bottom: 0 !important;
+    }
+  }
+
+  .second-toolbar {
+    margin-top: 0;
+    @include border-radius(0);
+  }
+}
+
+.fr-fullscreen-wrapper {
+  z-index: 2147483640 !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: visible !important;
+}

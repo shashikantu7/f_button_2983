@@ -1,0 +1,107 @@
+@import '../mixins.scss';
+@import '../variables.scss';
+
+.fr-popup {
+  .fr-layer.fr-color-hex-layer {
+    margin: 0;
+    padding: $popup-border-padding;
+    padding-top: 0;
+    float: left;
+
+    .fr-input-line {
+      float: left;
+      width: calc(100% - 50px);
+      padding: $color-input-line-padding;
+    }
+
+    .fr-action-buttons {
+      float: right;
+      width: $btn-width;
+      height: $btn-height;
+      padding: $color-action-button-padding;
+      margin: 0;
+    }
+
+    .fr-action-buttons {
+      button.fr-command {
+        @include border-radius($border-radius);
+        font-size: $color-font-size;
+        height: $btn-height;
+        width: $btn-width;
+      }
+    }
+  }
+
+  .fr-separator + .fr-colors-tabs {
+    margin-left: 2px;
+    margin-right: 2px;
+  }
+
+  .fr-color-set {
+    line-height: 0;
+    display: none;
+
+    &.fr-selected-set {
+      display: block;
+      padding: $popup-border-padding;
+      padding-bottom: 0;
+    }
+
+    > span {
+      display: inline-block;
+      width: $color-span-size;
+      height: $color-span-size;
+      position: relative;
+      z-index: 1;
+
+      > i, > svg {
+        text-align: center;
+        line-height: $color-line-height;
+        height: $ui-svg-size;
+        width: $ui-svg-size;
+        margin: $color-remove-svg-margin;
+        font-size: $color-font-size;
+        position: absolute;
+        bottom: 0;
+        cursor: default;
+        left: 0;
+
+        path {
+          fill: $ui-text;
+        }
+      }
+
+      .fr-selected-color {
+        color: $white;
+        font-family: FontAwesome;
+        font-size: $color-font-size;
+        font-weight: 400;
+        line-height: $color-line-height;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        text-align: center;
+        cursor: default;
+      }
+
+      &:hover, &:focus {
+        outline: 1px solid $ui-text;
+        z-index: 2;
+      }
+    }
+  }
+}
+
+.fr-rtl .fr-popup {
+  .fr-colors-tabs {
+    .fr-colors-tab {
+      &.fr-selected-tab {
+        &[data-param1="text"] ~ [data-param1="background"]::after {
+          @include transform(translate3d(100%,0,0));
+        }
+      }
+    }
+  }
+}

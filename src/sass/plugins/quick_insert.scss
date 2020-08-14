@@ -1,0 +1,54 @@
+@import '../mixins.scss';
+@import '../variables.scss';
+
+.fr-quick-insert {
+  position: absolute;
+  z-index: 2147483639;
+  white-space: nowrap;
+  padding-right: $quick-insert-padding-right;
+  @include box-sizing(content-box);
+
+  a.fr-floating-btn {
+    svg {
+      margin: $floating-svg-btn-margin;
+      width: $floating-svg-btn-size;
+      height: $floating-svg-btn-size;
+    }
+  }
+
+  &.fr-on {
+    a.fr-floating-btn svg {
+      @include transform(rotate(135deg));
+    }
+  }
+
+  &.fr-hidden {
+    display: none;
+  }
+}
+
+.fr-qi-helper {
+  position: absolute;
+  z-index: 3;
+  padding-left: $editor-padding;
+  white-space: nowrap;
+
+  a.fr-btn.fr-floating-btn {
+    text-align: center;
+    padding: $floating-btn-padding;
+    display: inline-block;
+    color: $ui-text;
+    background: $ui-bg;
+    @include opacity(0);
+    @include transform(scale(0));
+
+    svg {
+      fill: $ui-text;
+    }
+
+    &.fr-size-1 {
+      @include opacity(1);
+      @include transform(scale(1));
+    }
+  }
+}

@@ -1,0 +1,20 @@
+@import '../mixins.scss';
+@import '../variables.scss';
+
+.fr-popup {
+  .fr-icon.fr-fa-icon {
+    width: $popup-fa-icon-size;
+    padding: $popup-fa-icon-padding;
+    margin: $popup-fa-icon-margin;
+    font-size: $popup-fa-icon-font-size;
+  }
+
+  .fr-icon-container.fr-fa-container {
+    @supports not (-ms-high-contrast: none) {
+      grid-template-columns: repeat(auto-fill, minmax($popup-fa-grid-icon-size, $popup-fa-grid-icon-size));
+    }
+    @media screen and (-ms-high-contrast: active) and (min-width: $screen-sm), (-ms-high-contrast: none) and (min-width: $screen-sm) {
+      width: $popup-fa-container-width;
+    }
+  }
+}

@@ -1,0 +1,124 @@
+.fr-command.fr-btn {
+  &.fr-options {
+    width: $dropdown-options-width;
+    margin-left: $dropdown-options-margin-left;
+
+    &.fr-btn-hover, &:hover, &:focus {
+      border-left: $dropdown-options-border-left;
+      @include transition(border-left 0s, background-color 0.5s);
+    }
+  }
+
+  + .fr-dropdown-menu {
+    background: $ui-bg;
+    display: inline-block;
+    position: absolute;
+    right: auto;
+    bottom: auto;
+    height: auto;
+    z-index: 4;
+    @include border-radius($dropdown-border-radius);
+    -webkit-overflow-scrolling: touch;
+    overflow: hidden;
+    zoom: 1;
+    @include box-shadow($dropdown-menu-box-shadow);
+
+    &.test-height {
+      .fr-dropdown-wrapper {
+        @include transition(none);
+        height: auto;
+        max-height: $dropdown-max-height;
+      }
+    }
+
+    .fr-dropdown-wrapper {
+      padding: 0;
+      margin: auto;
+      display: inline-block;
+      text-align: left;
+      position: relative;
+      @include box-sizing(border-box);
+      @include transition(height $dropdown-transition-timing);
+      margin-top: 0;
+      float: left;
+      height: 0;
+      margin-top: 0 !important;
+
+      .fr-dropdown-content {
+        position: relative;
+
+        ul.fr-dropdown-list {
+          list-style-type: none;
+          margin: 0;
+          padding: $dropdown-list-padding;
+          min-width: $dropdown-list-min-width;
+
+          li {
+            padding: 0;
+            margin: 0;
+            font-size: $dropdown-list-item-font-size;
+
+            a {
+              padding: 0 ((($dropdown-list-min-width - $floating-svg-btn-size) / 2) - $btn-margin);
+              line-height: 200%;
+              display: flex;
+              cursor: pointer;
+              white-space: nowrap;
+              color: inherit;
+              text-decoration: none;
+              @include border-radius(0);
+
+              svg {
+                width: $floating-svg-btn-size;
+                height: $floating-svg-btn-size;
+                margin: ($btn-margin - 1) $btn-margin;
+
+                path {
+                  fill: $btn-text;
+                }
+              }
+
+              &.fr-active {
+                background: $ui-active-color;
+              }
+
+              &.fr-disabled {
+                color: $btn-disabled-color;
+                cursor: default;
+              }
+
+              .fr-shortcut {
+                margin-left: 20px;
+                font-weight: bold;
+                -webkit-opacity: 0.75;
+                -moz-opacity: 0.75;
+                opacity: 0.75;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.fr-active {
+    + .fr-dropdown-menu {
+      display: inline-block;
+      @include box-shadow($dropdown-menu-box-shadow);
+    }
+  }
+}
+
+.fr-bottom > .fr-command.fr-btn {
+  + .fr-dropdown-menu {
+    @include border-radius($border-radius $border-radius 0 0);
+  }
+}
+
+.fr-toolbar, .fr-popup {
+  &.fr-rtl {
+    .fr-dropdown-wrapper {
+      text-align: right !important;
+    }
+  }
+}

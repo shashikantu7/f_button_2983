@@ -1,0 +1,2916 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../../../dist/css/froala_editor.css">
+  <link rel="stylesheet" href="../../../../../dist/css/froala_style.css">
+  <link rel="stylesheet" href="../../../../../dist/css/plugins/table.css">
+
+  <style>
+      body {
+          text-align: center;
+          margin: 0;
+      }
+
+      section {
+        padding: 10px 5%;
+      }
+
+      section:after {
+        display: block;
+        clear: both;
+        content: "";
+      }
+
+      table {
+         border-collapse: collapse;
+      }
+
+      table td {
+        border: 1px solid #dddddd;
+      }
+  </style>
+</head>
+<body>
+  <h1>splitCellVertically and splitCellHorizontally</h1>
+
+  <section>
+    <h2>Case 1</h2>
+
+    <table width="100%">
+      <tbody>
+        <tr>
+          <td class="fr-selected-cell">a</td>
+          <td>b</td>
+        </tr>
+        <tr>
+          <td>c</td>
+          <td>d</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <br>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Horizontally:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td>a</td>
+            <td rowspan="2">b</td>
+          </tr>
+          <tr>
+            <td><br></td>
+          </tr>
+          <tr>
+            <td>c</td>
+            <td>d</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Vertically:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td>a</td>
+            <td><br></td>
+            <td>b</td>
+          </tr>
+          <tr>
+            <td colspan="2">c</td>
+            <td>d</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <br>
+
+  <section style="background: #f7f7f7;">
+    <h2>Case 2</h2>
+
+    <table width="100%">
+      <tbody>
+        <tr>
+          <td>a</td>
+          <td class="fr-selected-cell">b</td>
+        </tr>
+        <tr>
+          <td>c</td>
+          <td>d</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <br>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Horizontally:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td rowspan="2">a</td>
+            <td>b</td>
+          </tr>
+          <tr>
+            <td><br></td>
+          </tr>
+          <tr>
+            <td>c</td>
+            <td>d</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Vertically:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td>a</td>
+            <td>b</td>
+            <td><br></td>
+          </tr>
+          <tr>
+            <td>c</td>
+            <td colspan="2">d</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <br>
+
+  <section>
+    <h2>Case 3</h2>
+
+    <table width="100%">
+      <tbody>
+        <tr>
+          <td>a</td>
+          <td>b</td>
+        </tr>
+        <tr>
+          <td class="fr-selected-cell">c</td>
+          <td>d</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <br>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Horizontally:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td>a</td>
+            <td>b</td>
+          </tr>
+          <tr>
+            <td>c</td>
+            <td rowspan="2">d</td>
+          </tr>
+          <tr>
+            <td><br></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Vertically:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td colspan="2">a</td>
+            <td>b</td>
+          </tr>
+          <tr>
+            <td>c</td>
+            <td><br></td>
+            <td>d</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <br>
+
+  <section style="background: #f7f7f7;">
+    <h2>Case 4</h2>
+
+    <table width="100%">
+      <tbody>
+        <tr>
+          <td>a</td>
+          <td>b</td>
+        </tr>
+        <tr>
+          <td>c</td>
+          <td class="fr-selected-cell">d</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <br>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Horizontally:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td>a</td>
+            <td>b</td>
+          </tr>
+          <tr>
+            <td rowspan="2">c</td>
+            <td>d</td>
+          </tr>
+          <tr>
+            <td><br></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Vertically:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td>a</td>
+            <td colspan="2">b</td>
+          </tr>
+          <tr>
+            <td>c</td>
+            <td>d</td>
+            <td><br></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <br>
+
+  <section>
+    <h2>Case 5</h2>
+
+    <table width="100%">
+      <tbody>
+        <tr>
+          <td class="fr-selected-cell" rowspan="2">a</td>
+          <td>b</td>
+        </tr>
+        <tr>
+          <td>c</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <br>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Horizontally:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td>a</td>
+            <td>b</td>
+          </tr>
+          <tr>
+            <td><br></td>
+            <td>c</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Vertically:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td rowspan="2">a</td>
+            <td rowspan="2"><br></td>
+            <td>b</td>
+          </tr>
+          <tr>
+            <td>c</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <br>
+
+  <section style="background: #f7f7f7;">
+    <h2>Case 6</h2>
+
+    <table width="100%">
+      <tbody>
+        <tr>
+          <td rowspan="2">a</td>
+          <td class="fr-selected-cell">b</td>
+        </tr>
+        <tr>
+          <td>c</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <br>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Horizontally:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td rowspan="3">a</td>
+            <td>b</td>
+          </tr>
+          <tr>
+            <td><br></td>
+          </tr>
+          <tr>
+            <td>c</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Vertically:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td rowspan="2">a</td>
+            <td>b</td>
+            <td><br></td>
+          </tr>
+          <tr>
+            <td colspan="2">c</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <br>
+
+  <section>
+    <h2>Case 7</h2>
+
+    <table width="100%">
+      <tbody>
+        <tr>
+          <td rowspan="2">a</td>
+          <td>b</td>
+        </tr>
+        <tr>
+          <td class="fr-selected-cell">c</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <br>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Horizontally:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td rowspan="3">a</td>
+            <td>b</td>
+          </tr>
+          <tr>
+            <td>c</td>
+          </tr>
+          <tr>
+            <td><br></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Vertically:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td rowspan="2">a</td>
+            <td colspan="2">b</td>
+          </tr>
+          <tr>
+            <td>c</td>
+            <td><br></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <br>
+
+  <section style="background: #f7f7f7;">
+    <h2>Case 8</h2>
+
+    <table width="100%">
+      <tbody>
+        <tr>
+          <td>a</td>
+          <td class="fr-selected-cell" rowspan="2">b</td>
+        </tr>
+        <tr>
+          <td>c</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <br>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Horizontally:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td>a</td>
+            <td>b</td>
+          </tr>
+          <tr>
+            <td>c</td>
+            <td><br></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Vertically:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td>a</td>
+            <td rowspan="2">b</td>
+            <td rowspan="2"><br></td>
+          </tr>
+          <tr>
+            <td>c</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <br>
+
+  <section>
+    <h2>Case 9</h2>
+
+    <table width="100%">
+      <tbody>
+        <tr>
+          <td class="fr-selected-cell">a</td>
+          <td rowspan="2">b</td>
+        </tr>
+        <tr>
+          <td>c</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <br>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Horizontally:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td>a</td>
+            <td rowspan="3">b</td>
+          </tr>
+          <tr>
+            <td><br></td>
+          </tr>
+          <tr>
+            <td>c</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Vertically:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td>a</td>
+            <td><br></td>
+            <td rowspan="2">b</td>
+          </tr>
+          <tr>
+            <td colspan="2">c</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <br>
+
+  <section style="background: #f7f7f7;">
+    <h2>Case 10</h2>
+
+    <table width="100%">
+      <tbody>
+        <tr>
+          <td>a</td>
+          <td rowspan="2">b</td>
+        </tr>
+        <tr>
+          <td class="fr-selected-cell">c</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <br>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Horizontally:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td>a</td>
+            <td rowspan="3">b</td>
+          </tr>
+          <tr>
+            <td>c</td>
+          </tr>
+          <tr>
+            <td><br></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Vertically:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td colspan="2">a</td>
+            <td rowspan="2">b</td>
+          </tr>
+          <tr>
+            <td>c</td>
+            <td><br></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <br>
+
+  <section>
+    <h2>Case 11</h2>
+
+    <table width="100%">
+      <tbody>
+        <tr>
+          <td>a</td>
+          <td>b</td>
+        </tr>
+        <tr>
+          <td>c</td>
+          <td class="fr-selected-cell" rowspan="2">d</td>
+        </tr>
+        <tr>
+          <td>e</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <br>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Horizontally:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td>a</td>
+            <td>b</td>
+          </tr>
+          <tr>
+            <td>c</td>
+            <td>d</td>
+          </tr>
+          <tr>
+            <td>e</td>
+            <td><br></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Vertically:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td>a</td>
+            <td colspan="2">b</td>
+          </tr>
+          <tr>
+            <td>c</td>
+            <td rowspan="2">d</td>
+            <td rowspan="2"><br></td>
+          </tr>
+          <tr>
+            <td>e</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <br>
+
+  <section style="background: #f7f7f7;">
+    <h2>Case 12</h2>
+
+    <table width="100%">
+      <tbody>
+        <tr>
+          <td class="fr-selected-cell">a</td>
+          <td>b</td>
+        </tr>
+        <tr>
+          <td>c</td>
+          <td rowspan="2">d</td>
+        </tr>
+        <tr>
+          <td>e</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <br>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Horizontally:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td>a</td>
+            <td rowspan="2">b</td>
+          </tr>
+          <tr>
+            <td><br></td>
+          </tr>
+          <tr>
+            <td>c</td>
+            <td rowspan="2">d</td>
+          </tr>
+          <tr>
+            <td>e</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Vertically:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td>a</td>
+            <td><br></td>
+            <td>b</td>
+          </tr>
+          <tr>
+            <td colspan="2">c</td>
+            <td rowspan="2">d</td>
+          </tr>
+          <tr>
+            <td colspan="2">e</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <br>
+
+  <section>
+    <h2>Case 13</h2>
+
+    <table width="100%">
+      <tbody>
+        <tr>
+          <td>a</td>
+          <td class="fr-selected-cell">b</td>
+        </tr>
+        <tr>
+          <td>c</td>
+          <td rowspan="2">d</td>
+        </tr>
+        <tr>
+          <td>e</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <br>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Horizontally:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td rowspan="2">a</td>
+            <td>b</td>
+          </tr>
+          <tr>
+            <td><br></td>
+          </tr>
+          <tr>
+            <td>c</td>
+            <td rowspan="2">d</td>
+          </tr>
+          <tr>
+            <td>e</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Vertically:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td>a</td>
+            <td>b</td>
+            <td><br></td>
+          </tr>
+          <tr>
+            <td>c</td>
+            <td colspan="2" rowspan="2">d</td>
+          </tr>
+          <tr>
+            <td>e</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <br>
+
+  <section style="background: #f7f7f7;">
+    <h2>Case 14</h2>
+
+    <table width="100%">
+      <tbody>
+        <tr>
+          <td>a</td>
+          <td>b</td>
+        </tr>
+        <tr>
+          <td class="fr-selected-cell">c</td>
+          <td rowspan="2">d</td>
+        </tr>
+        <tr>
+          <td>e</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <br>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Horizontally:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td>a</td>
+            <td>b</td>
+          </tr>
+          <tr>
+            <td>c</td>
+            <td rowspan="3">d</td>
+          </tr>
+          <tr>
+            <td><br></td>
+          </tr>
+          <tr>
+            <td>e</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Vertically:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td colspan="2">a</td>
+            <td>b</td>
+          </tr>
+          <tr>
+            <td>c</td>
+            <td><br></td>
+            <td rowspan="2">d</td>
+          </tr>
+          <tr>
+            <td colspan="2">e</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <br>
+
+  <section>
+    <h2>Case 15</h2>
+
+    <table width="100%">
+      <tbody>
+        <tr>
+          <td class="fr-selected-cell" rowspan="2">a</td>
+          <td>b</td>
+        </tr>
+        <tr>
+          <td>c</td>
+        </tr>
+        <tr>
+          <td>d</td>
+          <td>e</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <br>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Horizontally:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td>a</td>
+            <td>b</td>
+          </tr>
+          <tr>
+            <td><br></td>
+            <td>c</td>
+          </tr>
+          <tr>
+            <td>d</td>
+            <td>e</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Vertically:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td rowspan="2">a</td>
+            <td rowspan="2"><br></td>
+            <td>b</td>
+          </tr>
+          <tr>
+            <td>c</td>
+          </tr>
+          <tr>
+            <td colspan="2">d</td>
+            <td>e</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <br>
+
+  <section style="background: #f7f7f7;">
+    <h2>Case 16</h2>
+
+    <table width="100%">
+      <tbody>
+        <tr>
+          <td rowspan="2">a</td>
+          <td class="fr-selected-cell">b</td>
+        </tr>
+        <tr>
+          <td>c</td>
+        </tr>
+        <tr>
+          <td>d</td>
+          <td>e</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <br>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Horizontally:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td rowspan="3">a</td>
+            <td>b</td>
+          </tr>
+          <tr>
+            <td><br></td>
+          </tr>
+          <tr>
+            <td>c</td>
+          </tr>
+          <tr>
+            <td>d</td>
+            <td>e</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Vertically:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td rowspan="2">a</td>
+            <td>b</td>
+            <td><br></td>
+          </tr>
+          <tr>
+            <td colspan="2">c</td>
+          </tr>
+          <tr>
+            <td>d</td>
+            <td colspan="2">e</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <br>
+
+  <section>
+    <h2>Case 17</h2>
+
+    <table width="100%">
+      <tbody>
+        <tr>
+          <td rowspan="2">a</td>
+          <td>b</td>
+        </tr>
+        <tr>
+          <td class="fr-selected-cell">c</td>
+        </tr>
+        <tr>
+          <td>d</td>
+          <td>e</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <br>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Horizontally:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td rowspan="3">a</td>
+            <td>b</td>
+          </tr>
+          <tr>
+            <td>c</td>
+          </tr>
+          <tr>
+            <td><br></td>
+          </tr>
+          <tr>
+            <td>d</td>
+            <td>e</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Vertically:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td rowspan="2">a</td>
+            <td colspan="2">b</td>
+          </tr>
+          <tr>
+            <td>c</td>
+            <td><br></td>
+          </tr>
+          <tr>
+            <td>d</td>
+            <td colspan="2">e</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <br>
+
+  <section style="background: #f7f7f7;">
+    <h2>Case 18</h2>
+
+    <table width="100%">
+      <tbody>
+        <tr>
+          <td rowspan="2">a</td>
+          <td>b</td>
+        </tr>
+        <tr>
+          <td>c</td>
+        </tr>
+        <tr>
+          <td class="fr-selected-cell">d</td>
+          <td>e</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <br>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Horizontally:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td rowspan="2">a</td>
+            <td>b</td>
+          </tr>
+          <tr>
+            <td>c</td>
+          </tr>
+          <tr>
+            <td>d</td>
+            <td rowspan="2">e</td>
+          </tr>
+          <tr>
+            <td><br></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Vertically:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td colspan="2" rowspan="2">a</td>
+            <td>b</td>
+          </tr>
+          <tr>
+            <td>c</td>
+          </tr>
+          <tr>
+            <td>d</td>
+            <td><br></td>
+            <td>e</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <br>
+
+  <section>
+    <h2>Case 19</h2>
+
+    <table width="100%">
+      <tbody>
+        <tr>
+          <td rowspan="2">a</td>
+          <td>b</td>
+        </tr>
+        <tr>
+          <td>c</td>
+        </tr>
+        <tr>
+          <td>d</td>
+          <td class="fr-selected-cell">e</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <br>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Horizontally:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td rowspan="2">a</td>
+            <td>b</td>
+          </tr>
+          <tr>
+            <td>c</td>
+          </tr>
+          <tr>
+            <td rowspan="2">d</td>
+            <td>e</td>
+          </tr>
+          <tr>
+            <td><br></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Vertically:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td rowspan="2">a</td>
+            <td colspan="2">b</td>
+          </tr>
+          <tr>
+            <td colspan="2">c</td>
+          </tr>
+          <tr>
+            <td>d</td>
+            <td>e</td>
+            <td><br></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <br>
+
+  <section style="background: #f7f7f7;">
+    <h2>Case 20</h2>
+
+    <table width="100%">
+      <tbody>
+        <tr>
+          <td class="fr-selected-cell" rowspan="2">a</td>
+          <td>b</td>
+          <td>c</td>
+        </tr>
+        <tr>
+          <td rowspan="2">d</td>
+          <td>e</td>
+        </tr>
+        <tr>
+          <td>f</td>
+          <td>g</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <br>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Horizontally:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td>a</td>
+            <td>b</td>
+            <td>c</td>
+          </tr>
+          <tr>
+            <td><br></td>
+            <td rowspan="2">d</td>
+            <td>e</td>
+          </tr>
+          <tr>
+            <td>f</td>
+            <td>g</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Vertically:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td rowspan="2">a</td>
+            <td rowspan="2"><br></td>
+            <td>b</td>
+            <td>c</td>
+          </tr>
+          <tr>
+            <td rowspan="2">d</td>
+            <td>e</td>
+          </tr>
+          <tr>
+            <td colspan="2">f</td>
+            <td>g</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <br>
+
+  <section>
+    <h2>Case 21</h2>
+
+    <table width="100%">
+      <tbody>
+        <tr>
+          <td rowspan="2">a</td>
+          <td class="fr-selected-cell">b</td>
+          <td>c</td>
+        </tr>
+        <tr>
+          <td rowspan="2">d</td>
+          <td>e</td>
+        </tr>
+        <tr>
+          <td>f</td>
+          <td>g</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <br>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Horizontally:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td rowspan="3">a</td>
+            <td>b</td>
+            <td rowspan="2">c</td>
+          </tr>
+          <tr>
+            <td><br></td>
+          </tr>
+          <tr>
+            <td rowspan="2">d</td>
+            <td>e</td>
+          </tr>
+          <tr>
+            <td>f</td>
+            <td>g</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Vertically:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td rowspan="2">a</td>
+            <td>b</td>
+            <td><br></td>
+            <td>c</td>
+          </tr>
+          <tr>
+            <td colspan="2" rowspan="2">d</td>
+            <td>e</td>
+          </tr>
+          <tr>
+            <td>f</td>
+            <td>g</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <br>
+
+  <section style="background: #f7f7f7;">
+    <h2>Case 22</h2>
+
+    <table width="100%">
+      <tbody>
+        <tr>
+          <td rowspan="2">a</td>
+          <td>b</td>
+          <td>c</td>
+        </tr>
+        <tr>
+          <td class="fr-selected-cell" rowspan="2">d</td>
+          <td>e</td>
+        </tr>
+        <tr>
+          <td>f</td>
+          <td>g</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <br>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Horizontally:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td rowspan="2">a</td>
+            <td>b</td>
+            <td>c</td>
+          </tr>
+          <tr>
+            <td>d</td>
+            <td>e</td>
+          </tr>
+          <tr>
+            <td>f</td>
+            <td><br></td>
+            <td>g</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Vertically:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td rowspan="2">a</td>
+            <td colspan="2">b</td>
+            <td>c</td>
+          </tr>
+          <tr>
+            <td rowspan="2">d</td>
+            <td rowspan="2"><br></td>
+            <td>e</td>
+          </tr>
+          <tr>
+            <td>f</td>
+            <td>g</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <br>
+
+  <section>
+    <h2>Case 23</h2>
+
+    <table width="100%">
+      <tbody>
+        <tr>
+          <td rowspan="2">a</td>
+          <td>b</td>
+          <td>c</td>
+        </tr>
+        <tr>
+          <td rowspan="2">d</td>
+          <td class="fr-selected-cell">e</td>
+        </tr>
+        <tr>
+          <td>f</td>
+          <td>g</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <br>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Horizontally:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td rowspan="3">a</td>
+            <td>b</td>
+            <td>c</td>
+          </tr>
+          <tr>
+            <td rowspan="3">d</td>
+            <td>e</td>
+          </tr>
+          <tr>
+            <td><br></td>
+          </tr>
+          <tr>
+            <td>f</td>
+            <td>g</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Vertically:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td rowspan="2">a</td>
+            <td>b</td>
+            <td colspan="2">c</td>
+          </tr>
+          <tr>
+            <td rowspan="2">d</td>
+            <td>e</td>
+            <td><br></td>
+          </tr>
+          <tr>
+            <td>f</td>
+            <td colspan="2">g</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <br>
+
+  <section style="background: #f7f7f7;">
+    <h2>Case 24</h2>
+
+    <table width="100%">
+      <tbody>
+        <tr>
+          <td rowspan="2">a</td>
+          <td>b</td>
+          <td>c</td>
+        </tr>
+        <tr>
+          <td rowspan="2">d</td>
+          <td>e</td>
+        </tr>
+        <tr>
+          <td class="fr-selected-cell">f</td>
+          <td>g</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <br>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Horizontally:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td rowspan="2">a</td>
+            <td>b</td>
+            <td>c</td>
+          </tr>
+          <tr>
+            <td rowspan="3">d</td>
+            <td>e</td>
+          </tr>
+          <tr>
+            <td>f</td>
+            <td rowspan="2">g</td>
+          </tr>
+          <tr>
+            <td><br></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Vertically:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td colspan="2" rowspan="2">a</td>
+            <td>b</td>
+            <td>c</td>
+          </tr>
+          <tr>
+            <td rowspan="2">d</td>
+            <td>e</td>
+          </tr>
+          <tr>
+            <td>f</td>
+            <td><br></td>
+            <td>g</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <br>
+
+  <section>
+    <h2>Case 25</h2>
+
+    <table width="100%">
+      <tbody>
+        <tr>
+          <td rowspan="2">a</td>
+          <td>b</td>
+          <td>c</td>
+        </tr>
+        <tr>
+          <td rowspan="2">d</td>
+          <td>e</td>
+        </tr>
+        <tr>
+          <td>f</td>
+          <td class="fr-selected-cell">g</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <br>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Horizontally:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td rowspan="2">a</td>
+            <td>b</td>
+            <td>c</td>
+          </tr>
+          <tr>
+            <td rowspan="3">d</td>
+            <td>e</td>
+          </tr>
+          <tr>
+            <td rowspan="2">f</td>
+            <td>g</td>
+          </tr>
+          <tr>
+            <td><br></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Vertically:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td rowspan="2">a</td>
+            <td>b</td>
+            <td colspan="2">c</td>
+          </tr>
+          <tr>
+            <td rowspan="2">d</td>
+            <td colspan="2">e</td>
+          </tr>
+          <tr>
+            <td>f</td>
+            <td>g</td>
+            <td><br></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <br>
+
+  <section style="background: #f7f7f7;">
+    <h2>Case 26</h2>
+
+    <table width="100%">
+      <tbody>
+        <tr>
+          <td class="fr-selected-cell">a</td>
+          <td rowspan="2">b</td>
+          <td rowspan="2">c</td>
+          <td>d</td>
+        </tr>
+        <tr>
+          <td>e</td>
+          <td>f</td>
+        </tr>
+        <tr>
+          <td>g</td>
+          <td>h</td>
+          <td>i</td>
+          <td>j</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <br>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Horizontally:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td>a</td>
+            <td rowspan="3">b</td>
+            <td rowspan="3">c</td>
+            <td rowspan="2">d</td>
+          </tr>
+          <tr>
+            <td><br></td>
+          </tr>
+          <tr>
+            <td>e</td>
+            <td>f</td>
+          </tr>
+          <tr>
+            <td>g</td>
+            <td>h</td>
+            <td>i</td>
+            <td>j</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Vertically:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td>a</td>
+            <td><br></td>
+            <td rowspan="2">b</td>
+            <td rowspan="2">c</td>
+            <td>d</td>
+          </tr>
+          <tr>
+            <td colspan="2">e</td>
+            <td>f</td>
+          </tr>
+          <tr>
+            <td colspan="2">g</td>
+            <td>h</td>
+            <td>i</td>
+            <td>j</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <br>
+
+  <section>
+    <h2>Case 27</h2>
+
+    <table width="100%">
+      <tbody>
+        <tr>
+          <td>a</td>
+          <td class="fr-selected-cell" rowspan="2">b</td>
+          <td rowspan="2">c</td>
+          <td>d</td>
+        </tr>
+        <tr>
+          <td>e</td>
+          <td>f</td>
+        </tr>
+        <tr>
+          <td>g</td>
+          <td>h</td>
+          <td>i</td>
+          <td>j</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <br>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Horizontally:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td>a</td>
+            <td>b</td>
+            <td rowspan="2">c</td>
+            <td>d</td>
+          </tr>
+          <tr>
+            <td>e</td>
+            <td><br></td>
+            <td>f</td>
+          </tr>
+          <tr>
+            <td>g</td>
+            <td>h</td>
+            <td>i</td>
+            <td>j</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Vertically:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td>a</td>
+            <td rowspan="2">b</td>
+            <td rowspan="2"><br></td>
+            <td rowspan="2">c</td>
+            <td>d</td>
+          </tr>
+          <tr>
+            <td>e</td>
+            <td>f</td>
+          </tr>
+          <tr>
+            <td>g</td>
+            <td colspan="2">h</td>
+            <td>i</td>
+            <td>j</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <br>
+
+  <section style="background: #f7f7f7;">
+    <h2>Case 28</h2>
+
+    <table width="100%">
+      <tbody>
+        <tr>
+          <td>a</td>
+          <td rowspan="2">b</td>
+          <td class="fr-selected-cell" rowspan="2">c</td>
+          <td>d</td>
+        </tr>
+        <tr>
+          <td>e</td>
+          <td>f</td>
+        </tr>
+        <tr>
+          <td>g</td>
+          <td>h</td>
+          <td>i</td>
+          <td>j</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <br>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Horizontally:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td>a</td>
+            <td rowspan="2">b</td>
+            <td>c</td>
+            <td>d</td>
+          </tr>
+          <tr>
+            <td>e</td>
+            <td><br></td>
+            <td>f</td>
+          </tr>
+          <tr>
+            <td>g</td>
+            <td>h</td>
+            <td>i</td>
+            <td>j</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Vertically:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td>a</td>
+            <td rowspan="2">b</td>
+            <td rowspan="2">c</td>
+            <td rowspan="2"><br></td>
+            <td>d</td>
+          </tr>
+          <tr>
+            <td>e</td>
+            <td>f</td>
+          </tr>
+          <tr>
+            <td>g</td>
+            <td>h</td>
+            <td colspan="2">i</td>
+            <td>j</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <br>
+
+  <section>
+    <h2>Case 29</h2>
+
+    <table width="100%">
+      <tbody>
+        <tr>
+          <td>a</td>
+          <td rowspan="2">b</td>
+          <td rowspan="2">c</td>
+          <td>d</td>
+        </tr>
+        <tr>
+          <td>e</td>
+          <td class="fr-selected-cell">f</td>
+        </tr>
+        <tr>
+          <td>g</td>
+          <td>h</td>
+          <td>i</td>
+          <td>j</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <br>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Horizontally:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td>a</td>
+            <td rowspan="3">b</td>
+            <td rowspan="3">c</td>
+            <td>d</td>
+          </tr>
+          <tr>
+            <td rowspan="2">e</td>
+            <td>f</td>
+          </tr>
+          <tr>
+            <td><br></td>
+          </tr>
+          <tr>
+            <td>g</td>
+            <td>h</td>
+            <td>i</td>
+            <td>j</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Vertically:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td>a</td>
+            <td rowspan="2">b</td>
+            <td rowspan="2">c</td>
+            <td colspan="2">d</td>
+          </tr>
+          <tr>
+            <td>e</td>
+            <td>f</td>
+            <td><br></td>
+          </tr>
+          <tr>
+            <td>g</td>
+            <td>h</td>
+            <td>i</td>
+            <td colspan="2">j</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <br>
+
+  <section style="background: #f7f7f7;">
+    <h2>Case 30</h2>
+
+    <table width="100%">
+      <tbody>
+        <tr>
+          <td>a</td>
+          <td rowspan="2">b</td>
+          <td rowspan="2">c</td>
+          <td>d</td>
+        </tr>
+        <tr>
+          <td>e</td>
+          <td>f</td>
+        </tr>
+        <tr>
+          <td>g</td>
+          <td class="fr-selected-cell">h</td>
+          <td>i</td>
+          <td>j</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <br>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Horizontally:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td>a</td>
+            <td rowspan="2">b</td>
+            <td rowspan="2">c</td>
+            <td>d</td>
+          </tr>
+          <tr>
+            <td>e</td>
+            <td>f</td>
+          </tr>
+          <tr>
+            <td rowspan="2">g</td>
+            <td>h</td>
+            <td rowspan="2">i</td>
+            <td rowspan="2">j</td>
+          </tr>
+          <tr>
+            <td><br></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Vertically:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td>a</td>
+            <td colspan="2" rowspan="2">b</td>
+            <td rowspan="2">c</td>
+            <td>d</td>
+          </tr>
+          <tr>
+            <td>e</td>
+            <td>f</td>
+          </tr>
+          <tr>
+            <td>g</td>
+            <td>h</td>
+            <td><br></td>
+            <td>i</td>
+            <td>j</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <br>
+
+  <section>
+    <h2>Case 31</h2>
+
+    <table width="100%">
+      <tbody>
+        <tr>
+          <td class="fr-selected-cell" colspan="2">a</td>
+        </tr>
+        <tr>
+          <td>c</td>
+          <td>d</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <br>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Horizontally:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td colspan="2">a</td>
+          </tr>
+          <tr>
+            <td colspan="2"><br></td>
+          </tr>
+          <tr>
+            <td>c</td>
+            <td>d</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Vertically:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td>a</td>
+            <td><br></td>
+          </tr>
+          <tr>
+            <td>c</td>
+            <td>d</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <br>
+
+  <section style="background: #f7f7f7;">
+    <h2>Case 32</h2>
+
+    <table width="100%">
+      <tbody>
+        <tr>
+          <td colspan="2">a</td>
+        </tr>
+        <tr>
+          <td class="fr-selected-cell">c</td>
+          <td>d</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <br>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Horizontally:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td colspan="2">a</td>
+          </tr>
+          <tr>
+            <td>c</td>
+            <td rowspan="2">d</td>
+          </tr>
+          <tr>
+            <td><br></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Vertically:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td colspan="3">a</td>
+          </tr>
+          <tr>
+            <td>c</td>
+            <td><br></td>
+            <td>d</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <br>
+
+  <section>
+    <h2>Case 33</h2>
+
+    <table width="100%">
+      <tbody>
+        <tr>
+          <td colspan="2">a</td>
+          <td class="fr-selected-cell">b</td>
+        </tr>
+        <tr>
+          <td>c</td>
+          <td>d</td>
+          <td>e</td>
+        </tr>
+        <tr>
+          <td>f</td>
+          <td colspan="2">g</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <br>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Horizontally:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td colspan="2" rowspan="2">a</td>
+            <td>b</td>
+          </tr>
+          <tr>
+            <td><br></td>
+          </tr>
+          <tr>
+            <td>c</td>
+            <td>d</td>
+            <td>e</td>
+          </tr>
+          <tr>
+            <td>f</td>
+            <td colspan="2">g</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Vertically:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td colspan="2">a</td>
+            <td>b</td>
+            <td><br></td>
+          </tr>
+          <tr>
+            <td>c</td>
+            <td>d</td>
+            <td colspan="2">e</td>
+          </tr>
+          <tr>
+            <td>f</td>
+            <td colspan="3">g</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <br>
+
+  <section style="background: #f7f7f7;">
+    <h2>Case 34</h2>
+
+    <table width="100%">
+      <tbody>
+        <tr>
+          <td colspan="2">a</td>
+          <td>b</td>
+        </tr>
+        <tr>
+          <td class="fr-selected-cell">c</td>
+          <td>d</td>
+          <td>e</td>
+        </tr>
+        <tr>
+          <td>f</td>
+          <td colspan="2">g</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <br>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Horizontally:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td colspan="2">a</td>
+            <td>b</td>
+          </tr>
+          <tr>
+            <td>c</td>
+            <td rowspan="2">d</td>
+            <td rowspan="2">e</td>
+          </tr>
+          <tr>
+            <td><br></td>
+          </tr>
+          <tr>
+            <td>f</td>
+            <td colspan="2">g</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Vertically:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td colspan="3">a</td>
+            <td>b</td>
+          </tr>
+          <tr>
+            <td>c</td>
+            <td><br></td>
+            <td>d</td>
+            <td>e</td>
+          </tr>
+          <tr>
+            <td colspan="2">f</td>
+            <td colspan="2">g</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <br>
+
+  <section>
+    <h2>Case 35</h2>
+
+    <table width="100%">
+      <tbody>
+        <tr>
+          <td colspan="2">a</td>
+          <td>b</td>
+        </tr>
+        <tr>
+          <td>c</td>
+          <td class="fr-selected-cell">d</td>
+          <td>e</td>
+        </tr>
+        <tr>
+          <td>f</td>
+          <td colspan="2">g</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <br>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Horizontally:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td colspan="2">a</td>
+            <td>b</td>
+          </tr>
+          <tr>
+            <td rowspan="2">c</td>
+            <td>d</td>
+            <td rowspan="2">e</td>
+          </tr>
+          <tr>
+            <td><br></td>
+          </tr>
+          <tr>
+            <td>f</td>
+            <td colspan="2">g</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Vertically:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td colspan="3">a</td>
+            <td>b</td>
+          </tr>
+          <tr>
+            <td>c</td>
+            <td>d</td>
+            <td><br></td>
+            <td>e</td>
+          </tr>
+          <tr>
+            <td>f</td>
+            <td colspan="3">g</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <br>
+
+  <section style="background: #f7f7f7;">
+    <h2>Case 36</h2>
+
+    <table width="100%">
+      <tbody>
+        <tr>
+          <td colspan="2">a</td>
+          <td>b</td>
+        </tr>
+        <tr>
+          <td>c</td>
+          <td>d</td>
+          <td>e</td>
+        </tr>
+        <tr>
+          <td>f</td>
+          <td class="fr-selected-cell" colspan="2">g</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <br>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Horizontally:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td colspan="2">a</td>
+            <td>b</td>
+          </tr>
+          <tr>
+            <td>c</td>
+            <td>d</td>
+            <td>e</td>
+          </tr>
+          <tr>
+            <td rowspan="2">f</td>
+            <td colspan="2">g</td>
+          </tr>
+          <tr>
+            <td colspan="2"><br></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Vertically:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td colspan="2">a</td>
+            <td>b</td>
+          </tr>
+          <tr>
+            <td>c</td>
+            <td>d</td>
+            <td>e</td>
+          </tr>
+          <tr>
+            <td>f</td>
+            <td>g</td>
+            <td><br></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <br>
+
+  <section>
+    <h2>Case 37</h2>
+
+    <table width="100%">
+      <tbody>
+        <tr>
+          <td class="fr-selected-cell">a</td>
+          <td>b</td>
+          <td rowspan="3">c</td>
+          <td>d</td>
+        </tr>
+        <tr>
+          <td colspan="2" rowspan="2">e</td>
+          <td>f</td>
+        </tr>
+        <tr>
+          <td>g</td>
+        </tr>
+        <tr>
+          <td>h</td>
+          <td colspan="2">i</td>
+          <td>j</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <br>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Horizontally:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td>a</td>
+            <td rowspan="2">b</td>
+            <td rowspan="4">c</td>
+            <td rowspan="2">d</td>
+          </tr>
+          <tr>
+            <td><br></td>
+          </tr>
+          <tr>
+            <td colspan="2" rowspan="2">e</td>
+            <td>f</td>
+          </tr>
+          <tr>
+            <td>g</td>
+          </tr>
+          <tr>
+            <td>h</td>
+            <td colspan="2">i</td>
+            <td>j</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Vertically:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td>a</td>
+            <td><br></td>
+            <td>b</td>
+            <td rowspan="3">c</td>
+            <td>d</td>
+          </tr>
+          <tr>
+            <td colspan="3" rowspan="2">e</td>
+            <td>f</td>
+          </tr>
+          <tr>
+            <td>g</td>
+          </tr>
+          <tr>
+            <td colspan="2">h</td>
+            <td colspan="2">i</td>
+            <td>j</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <br>
+
+  <section style="background: #f7f7f7;">
+    <h2>Case 38</h2>
+
+    <table width="100%">
+      <tbody>
+        <tr>
+          <td>a</td>
+          <td class="fr-selected-cell">b</td>
+          <td rowspan="3">c</td>
+          <td>d</td>
+        </tr>
+        <tr>
+          <td colspan="2" rowspan="2">e</td>
+          <td>f</td>
+        </tr>
+        <tr>
+          <td>g</td>
+        </tr>
+        <tr>
+          <td>h</td>
+          <td colspan="2">i</td>
+          <td>j</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <br>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Horizontally:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td rowspan="2">a</td>
+            <td>b</td>
+            <td rowspan="4">c</td>
+            <td rowspan="2">d</td>
+          </tr>
+          <tr>
+            <td><br></td>
+          </tr>
+          <tr>
+            <td colspan="2" rowspan="2">e</td>
+            <td>f</td>
+          </tr>
+          <tr>
+            <td>g</td>
+          </tr>
+          <tr>
+            <td>h</td>
+            <td colspan="2">i</td>
+            <td>j</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Vertically:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td>a</td>
+            <td>b</td>
+            <td><br></td>
+            <td rowspan="3">c</td>
+            <td>d</td>
+          </tr>
+          <tr>
+            <td colspan="3" rowspan="2">e</td>
+            <td>f</td>
+          </tr>
+          <tr>
+            <td>g</td>
+          </tr>
+          <tr>
+            <td>h</td>
+            <td colspan="3">i</td>
+            <td>j</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <br>
+
+  <section>
+    <h2>Case 39</h2>
+
+    <table width="100%">
+      <tbody>
+        <tr>
+          <td>a</td>
+          <td>b</td>
+          <td class="fr-selected-cell" rowspan="3">c</td>
+          <td>d</td>
+        </tr>
+        <tr>
+          <td colspan="2" rowspan="2">e</td>
+          <td>f</td>
+        </tr>
+        <tr>
+          <td>g</td>
+        </tr>
+        <tr>
+          <td>h</td>
+          <td colspan="2">i</td>
+          <td>j</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <br>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Horizontally:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td>a</td>
+            <td>b</td>
+            <td rowspan="2">c</td>
+            <td>d</td>
+          </tr>
+          <tr>
+            <td colspan="2" rowspan="2">e</td>
+            <td>f</td>
+          </tr>
+          <tr>
+            <td><br></td>
+            <td>g</td>
+          </tr>
+          <tr>
+            <td>h</td>
+            <td colspan="2">i</td>
+            <td>j</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Vertically:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td>a</td>
+            <td>b</td>
+            <td rowspan="3">c</td>
+            <td rowspan="3"><br></td>
+            <td>d</td>
+          </tr>
+          <tr>
+            <td colspan="2" rowspan="2">e</td>
+            <td>f</td>
+          </tr>
+          <tr>
+            <td>g</td>
+          </tr>
+          <tr>
+            <td>h</td>
+            <td colspan="3">i</td>
+            <td>j</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <br>
+
+  <section style="background: #f7f7f7;">
+    <h2>Case 40</h2>
+
+    <table width="100%">
+      <tbody>
+        <tr>
+          <td>a</td>
+          <td>b</td>
+          <td rowspan="3">c</td>
+          <td>d</td>
+        </tr>
+        <tr>
+          <td class="fr-selected-cell" colspan="2" rowspan="2">e</td>
+          <td>f</td>
+        </tr>
+        <tr>
+          <td>g</td>
+        </tr>
+        <tr>
+          <td>h</td>
+          <td colspan="2">i</td>
+          <td>j</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <br>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Horizontally:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td>a</td>
+            <td>b</td>
+            <td rowspan="3">c</td>
+            <td>d</td>
+          </tr>
+          <tr>
+            <td colspan="2">e</td>
+            <td>f</td>
+          </tr>
+          <tr>
+            <td colspan="2"><br></td>
+            <td>g</td>
+          </tr>
+          <tr>
+            <td>h</td>
+            <td colspan="2">i</td>
+            <td>j</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Vertically:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td>a</td>
+            <td>b</td>
+            <td rowspan="3">c</td>
+            <td>d</td>
+          </tr>
+          <tr>
+            <td rowspan="2">e</td>
+            <td rowspan="2"><br></td>
+            <td>f</td>
+          </tr>
+          <tr>
+            <td>g</td>
+          </tr>
+          <tr>
+            <td>h</td>
+            <td colspan="2">i</td>
+            <td>j</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <br>
+
+  <section>
+    <h2>Case 41</h2>
+
+    <table width="100%">
+      <tbody>
+        <tr>
+          <td>a</td>
+          <td>b</td>
+          <td rowspan="3">c</td>
+          <td>d</td>
+        </tr>
+        <tr>
+          <td colspan="2" rowspan="2">e</td>
+          <td>f</td>
+        </tr>
+        <tr>
+          <td>g</td>
+        </tr>
+        <tr>
+          <td>h</td>
+          <td class="fr-selected-cell" colspan="2">i</td>
+          <td>j</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <br>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Horizontally:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td>a</td>
+            <td>b</td>
+            <td rowspan="3">c</td>
+            <td>d</td>
+          </tr>
+          <tr>
+            <td colspan="2" rowspan="2">e</td>
+            <td>f</td>
+          </tr>
+          <tr>
+            <td>g</td>
+          </tr>
+          <tr>
+            <td rowspan="2">h</td>
+            <td colspan="2">i</td>
+            <td rowspan="2">j</td>
+          </tr>
+          <tr>
+            <td colspan="2"><br></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Vertically:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td>a</td>
+            <td>b</td>
+            <td rowspan="3">c</td>
+            <td>d</td>
+          </tr>
+          <tr>
+            <td colspan="2" rowspan="2">e</td>
+            <td>f</td>
+          </tr>
+          <tr>
+            <td>g</td>
+          </tr>
+          <tr>
+            <td>h</td>
+            <td>i</td>
+            <td><br></td>
+            <td>j</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <br>
+
+  <section style="background: #f7f7f7;">
+    <h2>Case 42</h2>
+
+    <table width="100%">
+      <tbody>
+        <tr>
+          <td>a</td>
+          <td>b</td>
+          <td rowspan="3">c</td>
+          <td>d</td>
+        </tr>
+        <tr>
+          <td colspan="2" rowspan="2">e</td>
+          <td>f</td>
+        </tr>
+        <tr>
+          <td class="fr-selected-cell">g</td>
+        </tr>
+        <tr>
+          <td>h</td>
+          <td colspan="2">i</td>
+          <td>j</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <br>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Horizontally:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td>a</td>
+            <td>b</td>
+            <td rowspan="4">c</td>
+            <td>d</td>
+          </tr>
+          <tr>
+            <td colspan="2" rowspan="3">e</td>
+            <td>f</td>
+          </tr>
+          <tr>
+            <td>g</td>
+          </tr>
+          <tr>
+            <td><br></td>
+          </tr>
+          <tr>
+            <td>h</td>
+            <td colspan="2">i</td>
+            <td>j</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="width: 45%; float: left; margin-right:5%;">
+      Vertically:
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td>a</td>
+            <td>b</td>
+            <td rowspan="3">c</td>
+            <td colspan="2">d</td>
+          </tr>
+          <tr>
+            <td colspan="2" rowspan="2">e</td>
+            <td colspan="2">f</td>
+          </tr>
+          <tr>
+            <td>g</td>
+            <td><br></td>
+          </tr>
+          <tr>
+            <td>h</td>
+            <td colspan="2">i</td>
+            <td colspan="2">j</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</body>
+</html>

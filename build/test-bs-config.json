@@ -1,0 +1,13 @@
+{
+  "port": 8001,
+  "logLevel": "silent",
+  "server": {
+    "baseDir": "./"
+  },
+  "files": [
+    "./src/**/*.{html,htm,css,js}",
+    "./test/**/*{html,htm,css,js}",
+    "./udist/**/*.{html,htm,css,js}"
+  ],
+  "startPath": "src/js/tests/index.html"
+}

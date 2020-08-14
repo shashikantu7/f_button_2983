@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0" />
+
+  <!-- Load CSS files. -->
+  <link rel="stylesheet" type="text/css" href="../dist/css/froala_editor.css">
+
+  <style>
+    body {
+      text-align: center;
+    }
+
+    div#editor {
+      width: 81%;
+      margin: auto;
+      text-align: left;
+    }
+
+    .ss {
+      background-color: red;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div id="editor">
+    <div id='edit' style="margin-top: 30px;">
+    </div>
+  </div>
+
+  <!-- Load main JS file. -->
+  <script type="text/javascript" src="../dist/js/froala_editor.min.js"></script>
+  <script type="text/javascript" src="../dist/js/plugins/align.min.js"></script>
+  <script type="text/javascript" src="../dist/js/languages/de.js"></script>
+
+  <script>
+    // Initialize the Froala Editor.
+    var editor = new FroalaEditor('#edit', {
+      language: 'de'
+    });
+
+  </script>
+</body>
+
+</html>

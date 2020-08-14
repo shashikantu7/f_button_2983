@@ -1,0 +1,39 @@
+@import '../variables.scss';
+@import '../mixins.scss';
+
+.fr-element {
+  .fr-embedly {
+    @include user-select(none);
+    position: relative;
+
+    &::after {
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      cursor: pointer;
+      display: block;
+      background: rgba(0,0,0,0);
+    }
+
+    > * {
+      @include box-sizing(content-box);
+      max-width: 100%;
+      border: none;
+    }
+  }
+}
+
+.fr-box .fr-embedly-resizer {
+  position: absolute;
+  z-index:2;
+  border: solid 1px $ui-color;
+  display: none;
+  @include user-select(none);
+
+  &.fr-active {
+    display: block;
+  }
+}

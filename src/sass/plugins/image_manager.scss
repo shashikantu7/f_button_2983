@@ -1,0 +1,249 @@
+@import '../mixins.scss';
+@import '../variables.scss';
+
+.fr-modal .fr-modal-head {
+  .fr-modal-head-line {
+    @include clearfix();
+
+    .fr-modal-more {
+        margin-top: $modal-btn-margin-top;
+    
+        &.fr-not-available {
+          opacity: 0;
+          width: 0;
+          padding: $image-manager-not-available-padding;
+        }
+      }
+  }
+
+  .fr-modal-tags {
+    padding: $modal-tags-padding;
+    display: none;
+    text-align: left;
+
+    a {
+      display: inline-block;
+      opacity: 0;
+      padding: $modal-link-tags-padding;
+      margin: $modal-link-tags-margin;
+      text-decoration: none;
+      @include border-radius($modal-tags-border-radius);
+      @include transition(opacity $transition-timing, background $transition-timing);
+      cursor: pointer;
+      background-color: $bg-color;
+
+      &:focus {
+        outline: none;
+        background-color: $btn-hover-bg;
+      }
+
+      &:hover {
+        background-color: $btn-hover-bg;
+      }
+
+      &:active {
+        background-color: $btn-active-bg;
+      }
+
+      &.fr-selected-tag {
+        background-color: $modal-selected-tag-bg;
+        color: $ui-color;
+        
+        &:focus {
+          outline: none;
+          background-color: $btn-hover-bg;
+        }
+  
+        &:hover {
+          background-color: $btn-hover-bg;
+        }
+  
+        &:active {
+          background-color: $btn-active-bg;
+        }
+      }
+    }
+  }
+}
+
+.fr-show-tags .fr-modal-more svg path {
+  fill: $ui-color;
+}
+
+div.fr-modal-body {
+  @include transition(background $transition-timing);
+  // The image preloader.
+  .fr-preloader {
+    display: block;
+    margin: 50px auto;
+  }
+
+  // The images list.
+  div.fr-image-list {
+    text-align: center;
+    margin: $image-manager-list-margin;
+    padding: 0;
+
+    .fr-list-column {
+      float: left;
+      // 1 columns, 1 gap1 of 20px;
+      width: calc((100% - 20px) / 2);
+
+      @media (min-width: $screen-sm) and (max-width: $screen-md-max) {
+        // 3 columns, 2 gaps of 20px each;
+        width: calc((100% - 40px) / 3);
+      }
+
+      @media (min-width: $screen-lg) {
+        // 4 columns, 3 gaps of 20px each;
+        width: calc((100% - 60px) / 4);
+      }
+
+      + .fr-list-column {
+        margin-left: 20px;
+      }
+    }
+
+    // The image container.
+    div.fr-image-container {
+      position: relative;
+      width: 100%;
+      display: block;
+      @include border-radius($border-radius);
+      overflow: hidden;
+
+      &:first-child {
+        margin-top: 20px;
+      }
+
+      + div {
+        margin-top: 20px;
+      }
+
+      &.fr-image-deleting{
+        &::after {
+          position: absolute;
+          @include opacity(0.5);
+          @include transition(opacity $transition-timing);
+          background: $black;
+          content: "";
+          top: 0;
+          left: 0;
+          bottom: 0;
+          right: 0;
+          z-index: 2;
+        }
+
+        &::before {
+          content: attr(data-deleting);
+          color: $white;
+          top: 0;
+          left: 0;
+          bottom: 0;
+          right: 0;
+          margin: auto;
+          position: absolute;
+          z-index: 3;
+          font-size: 15px;
+          height: 20px;
+        }
+      }
+
+      // Empty box displayed before loading an image.
+      &.fr-empty {
+        height: 95px;
+        background: $gray;
+        z-index: 1;
+
+        &::after {
+          position: absolute;
+          margin: auto;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          content: attr(data-loading);
+          display: inline-block;
+          height: 20px;
+        }
+      }
+
+      img {
+        width: 100%;
+        vertical-align: middle;
+        position: relative;
+        z-index: 2;
+        @include opacity(1);
+        @include transition(opacity $transition-timing, filter $transition-timing);
+        @include transform(translateZ(0));
+      }
+
+      &.fr-mobile-selected {
+        img {
+          @include opacity(0.75);
+        }
+
+        .fr-delete-img, .fr-insert-img {
+          display: inline-block;
+        }
+      }
+
+      // Delete image button.
+      .fr-delete-img, .fr-insert-img {
+        display: none;
+        top: 50%;
+        @include border-radius(100%);
+        @include transition(background $transition-timing, color $transition-timing);
+        @include box-sizing(border-box);
+        position: absolute;
+        cursor: pointer;
+        margin: 0;
+        line-height: $floating-btn-size;
+        text-decoration: none;
+        z-index: 3;
+      }
+
+      .fr-delete-img {
+        background: $modal-destroy-btn-bg;
+        fill: $modal-destroy-btn-text;
+        padding: $modal-btn-padding;
+        left: 50%;
+        @include transform(translateY(-50%) translateX(25%));
+      }
+
+      .fr-insert-img {
+        background: $ui-bg;
+        fill: $ui-color;
+        padding: $modal-btn-padding;
+        left: 50%;
+        @include transform(translateY(-50%) translateX(-125%));
+      }
+    }
+  }
+}
+
+.fr-desktop .fr-modal-wrapper {
+
+  div.fr-modal-body div.fr-image-list div.fr-image-container {
+    &:hover {
+      img {
+        @include opacity(0.75);
+      }
+
+      .fr-delete-img, .fr-insert-img {
+        display: inline-block;
+        width: $floating-btn-size;
+        height: $floating-btn-size;
+      }
+    }
+
+    .fr-delete-img:hover {
+      background: $modal-destroy-btn-hover-bg;
+      color: $modal-destroy-btn-hover-text;
+    }
+
+    .fr-insert-img:hover {
+      background: $ui-hover-color;
+    }
+  }
+}

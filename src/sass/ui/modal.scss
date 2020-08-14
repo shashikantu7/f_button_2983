@@ -1,0 +1,164 @@
+body.prevent-scroll {
+  overflow: hidden;
+
+  &.fr-mobile {
+    position: fixed;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+.fr-modal {
+  color: $ui-text;
+  font-family: $font-family;
+  position: fixed;
+  overflow-x: auto;
+  overflow-y: scroll;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  z-index: 2147483640;
+  text-rendering: optimizelegibility;
+  @include font-smoothing();
+  text-align: center;
+  line-height: 1.2;
+
+  &.fr-middle {
+    .fr-modal-wrapper {
+      margin-top: 0;
+      margin-bottom: 0;
+      margin-left: auto;
+      margin-right: auto;
+      top: 50%;
+      left: 50%;
+      @include transform(translate(-50%, -50%));
+      position: absolute;
+    }
+  }
+
+  .fr-modal-wrapper {
+    @include border-radius($modal-wrapper-border-radius);
+    background-clip: padding-box;
+    margin: $modal-wrapper-margin-lg;
+    display: inline-block;
+    background: $modal-bg;
+    min-width: $modal-wrapper-min-width;
+    @include box-shadow($modal-wrapper-box-shadow);
+    border: 0;
+    overflow: hidden;
+    width: 90%;
+    position: relative;
+
+    @media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+      margin: $modal-wrapper-margin-sm;
+      width: 70%;
+    }
+
+    @media (min-width: $screen-md) {
+      margin: $modal-wrapper-margin-md;
+      width: 960px;
+    }
+
+    .fr-modal-head {
+      background: $modal-bg;
+      overflow: hidden;
+      position: absolute;
+      width: 100%;
+      min-height: $modal-head-min-height;
+      z-index: 3;
+      border-bottom: solid $ui-bg-color 1px;
+      @include transition(all $transition-timing);
+
+      .fr-modal-head-line {
+        height: $modal-head-height;
+        padding: $modal-head-padding;
+
+      }
+
+      .fr-modal-close {
+        margin: $modal-close-margin;
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
+
+      h4 {
+        font-size: $modal-heading-font-size;
+        padding: $modal-heading-padding;
+        margin: 0;
+        font-weight: 400;
+        line-height: $modal-head-line-height;
+        display: inline-block;
+        float: left;
+      }
+    }
+
+    div.fr-modal-body {
+      height: 100%;
+      min-height: $modal-body-min-width;
+      overflow-y: auto;
+      padding-bottom: $modal-body-padding-bottom;
+
+      &:focus {
+        outline: 0;
+      }
+
+      button.fr-command {
+        height: $modal-body-btn-height;
+        line-height: 1;
+        color: $ui-color;
+        padding: $modal-body-btn-padding;
+        cursor: pointer;
+        text-decoration: none;
+        border: none;
+        background: none;
+        font-size: 16px;
+        outline: none;
+        @include transition(background $transition-timing);
+        @include border-radius($border-radius);
+
+        + button {
+          margin-left: 24px;
+        }
+
+        &:hover, &:focus {
+          background: $btn-hover-bg;
+          color: $ui-color;
+        }
+
+        &:active {
+          background: $btn-active-bg;
+          color: $ui-color;
+        }
+      }
+
+      button::-moz-focus-inner {
+        border: 0;
+      }
+    }
+  }
+}
+
+.fr-desktop .fr-modal-wrapper {
+  .fr-modal-head {
+    i:hover {
+      background: $ui-hover-color;
+    }
+  }
+}
+
+// Overlay that appears with modal.
+.fr-overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: $modal-overlay-color;
+  @include opacity($modal-overlay-opacity);
+  z-index: 2147483639;
+}
+ol.decimal_type { counter-reset: item; }
+ol.decimal_type > li{ display: block; }
+ol.decimal_type > li:before { content: counters(item, ".") ". "; counter-increment: item; }

@@ -1,0 +1,24 @@
+@import '../variables.scss';
+@import '../mixins.scss';
+
+.fr-popup {
+  .fr-emoticon {
+    width: $btn-svg-size;
+    height: $btn-svg-size;
+    font-family: "Apple Color Emoji", "Segoe UI Emoji", NotoColorEmoji, "Segoe UI Symbol", "Android Emoji", EmojiSymbols;
+  
+    img {
+      height: $popup-icon-size;
+      width: $popup-icon-size;
+    }
+  }
+  .fr-command.fr-btn.fr-tabs-unicode {
+    padding: $emoticon-tab-btn-padding;  
+  }
+
+  .fr-icon-container.fr-emoticon-container {
+    @media screen and (-ms-high-contrast: active) and (min-width: $screen-sm), (-ms-high-contrast: none) and (min-width: $screen-sm) {
+      width: $popup-emoticon-container-width;
+    }
+  }
+}

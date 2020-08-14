@@ -1,0 +1,30 @@
+@import '../variables.scss';
+@import '../mixins.scss';
+
+.fr-box {
+  .fr-counter {
+    padding: $char-counter-padding;
+    float: right;
+    color: $char-counter-text-color;
+    content: attr(data-chars);
+    font-size: $char-counter-font-size;
+    font-family: $char-counter-font-family;
+    z-index: 1;
+    @include border-radius($border-radius 0 0 0);
+  }
+
+  &.fr-rtl {
+    .fr-counter {
+      left: 0;
+      right: auto;
+      border-left: none;
+      @include border-radius(0 $border-radius 0 0);
+    }
+  }
+}
+
+.fr-box.fr-code-view {
+  .fr-counter {
+    display: none;
+  }
+}

@@ -1,0 +1,25 @@
+@import '../variables.scss';
+@import '../mixins.scss';
+
+.tui-image-editor-container{
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+}
+
+.tui-editor-cancel-btn{
+  background-color: $white;
+  border: 1px solid $gray;
+  color: #222;
+}
+
+.tui-editor-save-btn{
+  background-color: #fdba3b;
+  border: 1px solid #fdba3b;
+  color: $white;
+}

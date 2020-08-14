@@ -1,0 +1,23 @@
+.fr-tooltip {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0 8px;
+  @include border-radius($border-radius);
+  background: $tooltip-bg;
+  color: $tooltip-text;
+  font-size: $tooltip-font-size;
+  line-height: $tooltip-line-height;
+  font-family: $font-family;
+  @include transition(opacity $transition-timing);
+  @include opacity(0);
+  left: -3000px;
+  @include user-select(none);
+  z-index: 2147483647;
+  text-rendering: optimizelegibility;
+  @include font-smoothing();
+
+  &.fr-visible {
+    @include opacity(1);
+  }
+}
